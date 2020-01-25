@@ -6,7 +6,7 @@
 /*   By: mbutt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 16:05:14 by mbutt             #+#    #+#             */
-/*   Updated: 2020/01/24 20:46:33 by mbutt            ###   ########.fr       */
+/*   Updated: 2020/01/24 21:47:03 by mbutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@
 //#include <abc.h>
 #include <iostream>
 #include <sys/utsname.h>
+#include <sys/sysctl.h>
+#include <thread>
+
 
 class OsInfoModule
 {
@@ -35,16 +38,10 @@ class OsInfoModule
 		std::string getReleaseVersion(void);
 		std::string getVersionDate(void);
 		std::string getMachine(void);
+		std::string getCpuInfo(void);
+		unsigned int getCpuCores(void);
 	private:
 		struct utsname _info;
-//		std::string userName;
-//		std::string sysName;
-//		std::string nodeName;
-//		std::string release;
-//		std::string version;
-//		std::string machine;
-//		std::string domainName;
-//		void setSystemInfo(void);
 };
 
 #endif
