@@ -6,7 +6,7 @@
 /*   By: mbutt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 16:05:42 by mbutt             #+#    #+#             */
-/*   Updated: 2020/01/25 10:23:56 by mbutt            ###   ########.fr       */
+/*   Updated: 2020/01/25 11:10:23 by mbutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,11 @@ std::string OsInfoModule::getMacOs(void)
 	return(macOsVersion);
 }
 
+void OsInfoModule::getNetworkPackets(void)
+{
+ 	system("top -l 1| grep Networks");
+}
+
 
 unsigned int OsInfoModule::getCpuCores(void)
 {
@@ -181,30 +186,13 @@ int main(void)
 	std::cout << "RAM in Megabytes: " << info.getPhysicalMemoryMbytes() << std::endl;
 	std::cout << "RAM in Gigabytes: " << info.getPhysicalMemoryGbytes() << std::endl;
 	std::cout << "MacOs: " << info.getMacOs() << std::endl;
-/*	
-	int osxVersion;
-	if (floor(NSAppKitVersionNumber) <= NSAppKitVersionNumber10_6) {
-    //10.6.x or earlier systems
-    osxVersion = 106;
-    NSLog(@"Mac OSX Snow Leopard");
-*/
-/*
-	    int mib[2];
-    int64_t physical_memory;
-    size_t length;
-
-    // Get the Physical memory size
-    mib[0] = CTL_HW;
-    mib[1] = HW_MEMSIZE;
-    length = sizeof(int64_t);
-   
-	std::cout << "mib[0]: " << mib[0] << std::endl;
-	std::cout << "mib[1]: " << mib[1] << std::endl;
-   	sysctl(mib, 2, &physical_memory, &length, NULL, 0);
-	std::cout << "mib[0]: " << mib[0] << std::endl;
-	std::cout << "mib[1]: " << mib[1] << std::endl;
-	std::cout << "physical_memory: " << physical_memory << std::endl;
-	std::cout << "length: " << length << std::endl;
-*/
+	info.getNetworkPackets();
+//	std::cout << info.getNetworkPackets() << std::endl;
+//	int networkPackets =  system("top -l 1| grep Networks"); 
+//	while(1)
+//	{
+//		std::cout << networkPackets << std::endl;
+//		break;
+//	}
 }
 

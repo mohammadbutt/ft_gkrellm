@@ -6,7 +6,7 @@
 /*   By: mbutt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 16:05:14 by mbutt             #+#    #+#             */
-/*   Updated: 2020/01/25 10:23:59 by mbutt            ###   ########.fr       */
+/*   Updated: 2020/01/25 11:10:26 by mbutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ class OsInfoModule
 		std::string getMachine(void);
 		std::string getCpuInfo(void);
 		std::string getMacOs(void);
+		void getNetworkPackets(void);
 		int64_t getPhysicalMemoryBytes(void);
 		int		getPhysicalMemoryMbytes(void);
 		int		getPhysicalMemoryGbytes(void);
