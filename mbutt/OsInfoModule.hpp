@@ -6,7 +6,7 @@
 /*   By: mbutt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 16:05:14 by mbutt             #+#    #+#             */
-/*   Updated: 2020/01/24 21:47:03 by mbutt            ###   ########.fr       */
+/*   Updated: 2020/01/25 10:23:59 by mbutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,18 @@ class OsInfoModule
 		std::string getUserName(void);
 		std::string getSysName(void);
 		std::string getNodeName(void);
-		std::string getReleaseVersion(void);
+		std::string getDarwinReleaseVersion(void);
 		std::string getVersionDate(void);
 		std::string getMachine(void);
 		std::string getCpuInfo(void);
+		std::string getMacOs(void);
+		int64_t getPhysicalMemoryBytes(void);
+		int		getPhysicalMemoryMbytes(void);
+		int		getPhysicalMemoryGbytes(void);
 		unsigned int getCpuCores(void);
 	private:
 		struct utsname _info;
+//		unsigned int _physical_memory;
 };
 
 #endif
