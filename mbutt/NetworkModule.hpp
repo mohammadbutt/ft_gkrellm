@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ParentModule.hpp                                   :+:      :+:    :+:   */
+/*   NetworkModule.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbutt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/25 14:38:19 by mbutt             #+#    #+#             */
-/*   Updated: 2020/01/25 15:30:58 by mbutt            ###   ########.fr       */
+/*   Created: 2020/01/25 15:16:41 by mbutt             #+#    #+#             */
+/*   Updated: 2020/01/25 15:52:16 by mbutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARENTMODULE_HPP
-# define PARENTMODULE_HPP
+#ifndef NETWORKMODULE_HPP
+# define NETWORKMODULE_HPP
 
-#include <iostream>
-#include <string>
-#include <sstream>
-#include <fstream>
+#include "ParentModule.hpp"
+//#include <iostream>
 
-class ParentModule
+class NetworkModule : public ParentModule
 {
 	public:
-		ParentModule(void);
-		~ParentModule(void);
-		std::string getTopInfo(void);
-	
-	protected:
-		std::string _topInfo;
-		void _setUpdateTopInfo(void);
+		NetworkModule(void);
+		~NetworkModule(void);
+		std::string getNetworkPacketIn(void);
+		std::string getNetworkPacketOut(void);
+//	private:
+
 };
 
-#endif
+# endif
