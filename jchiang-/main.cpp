@@ -6,14 +6,28 @@
 /*   By: jchiang- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 20:35:26 by jchiang-          #+#    #+#             */
-/*   Updated: 2020/01/24 21:09:47 by jchiang-         ###   ########.fr       */
+/*   Updated: 2020/01/25 10:27:19 by jchiang-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DateTimeModule.hpp"
-
-#include <stdio.h>
 #include <time.h>
+#include "CPUModule.hpp"
+
+/* --------------------------------------------------------------------------------------- */
+// CPU testing
+void testCPUModule(void) 
+{
+	CPUModule cpu = CPUModule();
+	std::cout << "Core: " <<  cpu.getCpuCoreCount() << std::endl;
+	std::cout << "Cache size: " <<  cpu.getCpuCasheSize() << std::endl;
+	std::cout << "Thread count: " <<  cpu.getCpuThreadCount() << std::endl;
+	std::cout << cpu.getCpuBrandString() << std::endl;
+	std::cout << cpu.getCpuExFeatures() << std::endl;
+}
+
+/* --------------------------------------------------------------------------------------- */
+// Timer Testing
 void doTimer(DateTimeModule dtime)
 {
 	dtime.refreshCurrentTime();
@@ -57,6 +71,8 @@ void testTimerModule(void)
 
 int main()
 {
-	testTimerModule();
-    return 0;
+	//testTimerModule();
+	testCPUModule();
+    
+	return 0;
 }
