@@ -6,7 +6,7 @@
 /*   By: mbutt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 16:05:42 by mbutt             #+#    #+#             */
-/*   Updated: 2020/01/24 21:47:06 by mbutt            ###   ########.fr       */
+/*   Updated: 2020/01/25 10:23:56 by mbutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ std::string OsInfoModule::getNodeName(void)
 	return(_info.nodename);
 }
 
-std::string OsInfoModule::getReleaseVersion(void)
+std::string OsInfoModule::getDarwinReleaseVersion(void)
 {
 	return(_info.release);
 }
@@ -50,7 +50,7 @@ std::string OsInfoModule::getReleaseVersion(void)
 std::string OsInfoModule::getVersionDate(void)
 {
 	std::string fullString = _info.version;
-	std::string newString = fullString.substr(30, 28);	
+	std::string newString = fullString.substr(30, 28);
 	return(newString);
 }
 
@@ -67,9 +67,48 @@ std::string OsInfoModule::getCpuInfo(void)
 	{
 		perror("sysctl");
 	}
-//	std::cout << "cores: " << std::thread::hardware_concurrency() << std::endl;
 	return(cpuInfo);
 }
+
+
+std::string OsInfoModule::getMacOs(void)
+{
+	std::string macOsVersion;
+	int darwinReleaseVersionNumber = atoi(_info.release);
+
+	if(darwinReleaseVersionNumber == 19)
+		macOsVersion = "Catalina";
+	else if(darwinReleaseVersionNumber == 18)
+		macOsVersion = "Mojave";
+	else if(darwinReleaseVersionNumber == 17)
+		macOsVersion = "High Sierra";
+	else if(darwinReleaseVersionNumber == 16)
+		macOsVersion = "Sierra";
+	else if(darwinReleaseVersionNumber == 15)
+		macOsVersion = "El Capitan";
+	else if(darwinReleaseVersionNumber == 14)
+		macOsVersion = "Yosemite";
+	else if(darwinReleaseVersionNumber == 13)
+		macOsVersion = "Mavericks";
+	else if(darwinReleaseVersionNumber == 12)
+		macOsVersion = "Mountain Lion";
+	else if(darwinReleaseVersionNumber == 11)
+		macOsVersion = "Lion";
+	else if(darwinReleaseVersionNumber == 10)
+		macOsVersion = "Snow Leopard";
+	else if(darwinReleaseVersionNumber == 9)
+		macOsVersion = "Leopard";
+	else if(darwinReleaseVersionNumber == 8)
+		macOsVersion = "Tiger";
+	else if(darwinReleaseVersionNumber == 7)
+		macOsVersion = "Panther";
+	else if(darwinReleaseVersionNumber == 6)
+		macOsVersion = "Jaguar";
+	else if(darwinReleaseVersionNumber == 5)
+		macOsVersion = "Puma";	
+	return(macOsVersion);
+}
+
 
 unsigned int OsInfoModule::getCpuCores(void)
 {
@@ -78,6 +117,51 @@ unsigned int OsInfoModule::getCpuCores(void)
 	numberOfCores = std::thread::hardware_concurrency();
 	return(numberOfCores);
 }
+
+int64_t OsInfoModule::getPhysicalMemoryBytes(void)
+{
+	int mib[2];
+	int64_t physicalMemory;
+	size_t length;
+
+	mib[0] = CTL_HW;
+	mib[1] = HW_MEMSIZE;
+	length = sizeof(int64_t);
+	sysctl(mib, 2, &physicalMemory, &length, NULL, 0);
+	return(physicalMemory);
+}
+
+
+int OsInfoModule::getPhysicalMemoryMbytes(void)
+{
+	int mib[2];
+	int64_t physicalMemory;
+	size_t length;
+
+	mib[0] = CTL_HW;
+	mib[1] = HW_MEMSIZE;
+	length = sizeof(int64_t);
+	sysctl(mib, 2, &physicalMemory, &length, NULL, 0);
+
+	return(physicalMemory / (1024 * 1024));
+}
+
+
+int OsInfoModule::getPhysicalMemoryGbytes(void)
+{
+	int mib[2];
+	int64_t physicalMemory;
+	size_t length;
+
+	mib[0] = CTL_HW;
+	mib[1] = HW_MEMSIZE;
+	length = sizeof(int64_t);
+	sysctl(mib, 2, &physicalMemory, &length, NULL, 0);
+
+	return(physicalMemory / (1024 * 1024 * 1024));
+}
+
+
 
 int main(void)
 {
@@ -88,12 +172,23 @@ int main(void)
 	std::cout << "sysName: " << info.getSysName() << std::endl;
 
 	std::cout << "nodeName: " << info.getNodeName() << std::endl;
-	std::cout << "release version: " << info.getReleaseVersion() << std::endl;
-	std::cout << "version: " << info.getVersionDate() << std::endl;
+	std::cout << "Darwin release version: " << info.getDarwinReleaseVersion() << std::endl;
+	std::cout << "version release date: " << info.getVersionDate() << std::endl;
 	std::cout << "Machine: " << info.getMachine() << std::endl;
 	std::cout << "CPU: " << info.getCpuInfo() << std::endl;
 	std::cout << "Cores: " << info.getCpuCores() << std::endl;
-
+	std::cout << "RAM in bytes: " << info.getPhysicalMemoryBytes() << std::endl;
+	std::cout << "RAM in Megabytes: " << info.getPhysicalMemoryMbytes() << std::endl;
+	std::cout << "RAM in Gigabytes: " << info.getPhysicalMemoryGbytes() << std::endl;
+	std::cout << "MacOs: " << info.getMacOs() << std::endl;
+/*	
+	int osxVersion;
+	if (floor(NSAppKitVersionNumber) <= NSAppKitVersionNumber10_6) {
+    //10.6.x or earlier systems
+    osxVersion = 106;
+    NSLog(@"Mac OSX Snow Leopard");
+*/
+/*
 	    int mib[2];
     int64_t physical_memory;
     size_t length;
@@ -110,5 +205,6 @@ int main(void)
 	std::cout << "mib[1]: " << mib[1] << std::endl;
 	std::cout << "physical_memory: " << physical_memory << std::endl;
 	std::cout << "length: " << length << std::endl;
+*/
 }
 
