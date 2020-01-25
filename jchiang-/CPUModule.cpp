@@ -6,7 +6,7 @@
 /*   By: jchiang- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 09:21:11 by jchiang-          #+#    #+#             */
-/*   Updated: 2020/01/25 10:34:08 by jchiang-         ###   ########.fr       */
+/*   Updated: 2020/01/25 11:48:24 by jchiang-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ CPUModule::CPUModule(void) {
 	_cpuExFeatures = stringTmp;
 	sysctlbyname("machdep.cpu.brand_string", &stringTmp, &stringSize, NULL, 0);
 	_cpuBrandString = stringTmp;
+	_cpuUsage = 0.0f;
 }
 CPUModule::CPUModule(const CPUModule & copy) { *this = copy; }
 CPUModule &CPUModule::operator = (const CPUModule & inputClass) {
@@ -35,6 +36,7 @@ CPUModule &CPUModule::operator = (const CPUModule & inputClass) {
 	this->_cpuThreadCount = inputClass._cpuThreadCount;
 	this->_cpuBrandString = inputClass._cpuBrandString;  
 	this->_cpuExFeatures  = inputClass._cpuExFeatures;
+	this->_cpuUsage       = inputClass._cpuUsage;
 	return *this;
 }
 
@@ -45,4 +47,9 @@ int CPUModule::getCpuCasheSize(void) const { return _cpuCasheSize; }
 int CPUModule::getCpuThreadCount(void) const { return _cpuThreadCount; }
 std::string CPUModule::getCpuBrandString(void) const { return _cpuBrandString; }
 std::string CPUModule::getCpuExFeatures(void) const { return _cpuExFeatures; }
-
+float CPUModule::getCpuUsage(void) const { return _cpuUsage; }
+#define CPU_FILE_NAME "/tmp/cpu_usage.txt"
+void CPUModule::update(void) {
+	//const char *cpuFileName = "/tmp/cpu_usage.txt";
+	system("top -l1 | grep \'CPU usage\' > /tmp/cpu_usage.txt");
+};

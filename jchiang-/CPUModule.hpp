@@ -6,7 +6,7 @@
 /*   By: jchiang- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 09:09:18 by jchiang-          #+#    #+#             */
-/*   Updated: 2020/01/25 10:26:56 by jchiang-         ###   ########.fr       */
+/*   Updated: 2020/01/25 11:26:45 by jchiang-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ class CPUModule
 		int _cpuCoreCount;
 		int _cpuCasheSize;
 		int _cpuThreadCount;
+		float _cpuUsage;
 		std::string _cpuBrandString;
 		std::string _cpuExFeatures;
 	public:
@@ -44,6 +45,8 @@ class CPUModule
 		int getCpuThreadCount(void) const;
 		std::string getCpuBrandString(void) const;
 		std::string getCpuExFeatures(void) const;
+
+		void update(void);
 };
 
 #endif

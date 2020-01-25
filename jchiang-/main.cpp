@@ -6,7 +6,7 @@
 /*   By: jchiang- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 20:35:26 by jchiang-          #+#    #+#             */
-/*   Updated: 2020/01/25 10:27:19 by jchiang-         ###   ########.fr       */
+/*   Updated: 2020/01/25 11:27:06 by jchiang-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void testCPUModule(void)
 	std::cout << "Thread count: " <<  cpu.getCpuThreadCount() << std::endl;
 	std::cout << cpu.getCpuBrandString() << std::endl;
 	std::cout << cpu.getCpuExFeatures() << std::endl;
+	std::cout << "CPU Usage: " << cpu.getCpuUsage() << std::endl;
+	cpu.update();
 }
 
 /* --------------------------------------------------------------------------------------- */
