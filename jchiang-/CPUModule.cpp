@@ -6,7 +6,7 @@
 /*   By: jchiang- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 09:21:11 by jchiang-          #+#    #+#             */
-/*   Updated: 2020/01/25 11:48:24 by jchiang-         ###   ########.fr       */
+/*   Updated: 2020/01/25 14:49:40 by jchiang-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,25 @@ int CPUModule::getCpuCasheSize(void) const { return _cpuCasheSize; }
 int CPUModule::getCpuThreadCount(void) const { return _cpuThreadCount; }
 std::string CPUModule::getCpuBrandString(void) const { return _cpuBrandString; }
 std::string CPUModule::getCpuExFeatures(void) const { return _cpuExFeatures; }
-float CPUModule::getCpuUsage(void) const { return _cpuUsage; }
-#define CPU_FILE_NAME "/tmp/cpu_usage.txt"
+std::string CPUModule::getCpuUsage(void) const { return _cpuUsage; }
+float CPUModule::getCpuUsageFloat(void) const { return _cpuUsageFloat; }
+
+
+static float catchFloat(std::string &s) {
+	std::stringstream ss(s);
+	std::string tmp;
+	float value;
+	ss >> tmp >> tmp >> value;
+	return value;
+}
+
 void CPUModule::update(void) {
-	//const char *cpuFileName = "/tmp/cpu_usage.txt";
 	system("top -l1 | grep \'CPU usage\' > /tmp/cpu_usage.txt");
+	std::ifstream cpuUsageFile("/tmp/cpu_usage.txt");
+	if (cpuUsageFile.is_open()){
+		getline(cpuUsageFile, _cpuUsage);
+		cpuUsageFile.close();
+	}
+	_cpuUsageFloat = catchFloat(_cpuUsage);
 };
+
