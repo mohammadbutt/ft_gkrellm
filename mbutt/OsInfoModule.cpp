@@ -6,7 +6,7 @@
 /*   By: mbutt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 16:05:42 by mbutt             #+#    #+#             */
-/*   Updated: 2020/01/24 20:04:30 by mbutt            ###   ########.fr       */
+/*   Updated: 2020/01/24 20:46:30 by mbutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,28 +27,6 @@ OsInfoModule::~OsInfoModule(void)
 	std::cout << "Calling destructor" << std::endl;
 }
 
-/*
-void OsInfoModule::setSystemInfo(void)
-{
-//	struct utsname info;
-//	uname(&info);
-	
-	uname(&_info);
-	userName = getenv("USER");
-
-//	sysName = info.sysname;
-//	nodeName = info.nodename;
-//	release = info.release;
-//	version = info.version;
-//	machine = info.machine;
-
-
-#ifdef _GUN_SOURCE
-//	domainName = info.domainname;
-#endif
-}
-*/
-
 std::string OsInfoModule::getUserName(void)
 {
 	return(getenv("USER"));
@@ -64,34 +42,36 @@ std::string OsInfoModule::getNodeName(void)
 	return(_info.nodename);
 }
 
-std::string OsInfoModule::getRelease(void)
+std::string OsInfoModule::getReleaseVersion(void)
 {
 	return(_info.release);
 }
 
-std::string OsInfoModule::getVersion(void)
+std::string OsInfoModule::getVersionDate(void)
 {
-	return(_info.version);
+	std::string fullString = _info.version;
+	std::string newString = fullString.substr(30, 28);
+	
+//	return(_info.version);
+	return(newString);
 }
 
 std::string OsInfoModule::getMachine(void)
-
+{
+	return(_info.machine);
+}
 
 int main(void)
 {
 	OsInfoModule info;
-	info.getSystemInfo();
+//	info.getSystemInfo();
 
-	std::cout << info.userName << std::endl;
-	std::cout << info.sysName << std::endl;
+	std::cout << "username: " << info.getUserName() << std::endl;
+	std::cout << "sysName: " << info.getSysName() << std::endl;
 
-	std::cout << info.nodeName << std::endl;
-	std::cout << info.release << std::endl;
-	std::cout << "version: " << info.version << std::endl;
-	std::cout << info.machine << std::endl;
-//	std::cout << info.domainName << std::endl;
-//	osInfo();
-//	osInfo();
-
+	std::cout << "nodeName: " << info.getNodeName() << std::endl;
+	std::cout << "release version: " << info.getReleaseVersion() << std::endl;
+	std::cout << "version: " << info.getVersionDate() << std::endl;
+	std::cout << "Machine: " << info.getMachine() << std::endl;
 }
 

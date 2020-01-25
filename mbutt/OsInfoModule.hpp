@@ -6,18 +6,21 @@
 /*   By: mbutt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 16:05:14 by mbutt             #+#    #+#             */
-/*   Updated: 2020/01/24 20:04:27 by mbutt            ###   ########.fr       */
+/*   Updated: 2020/01/24 20:46:33 by mbutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef OSINFOMODULE_HPP
 # define OSINFOMODULE_HPP
 
+# define _GNUE_SOURCE
+
 /*
 ** References and resources:
 ** stackoverflow.com/questions/6315666/c-get-linux-distribution-name-version
 */
 
+//#include <abc.h>
 #include <iostream>
 #include <sys/utsname.h>
 
@@ -29,10 +32,9 @@ class OsInfoModule
 		std::string getUserName(void);
 		std::string getSysName(void);
 		std::string getNodeName(void);
-		std::string getRelease(void);
-		std::string getVersion(void);
+		std::string getReleaseVersion(void);
+		std::string getVersionDate(void);
 		std::string getMachine(void);
-		std::string getDomainName(void);
 	private:
 		struct utsname _info;
 //		std::string userName;
@@ -44,6 +46,5 @@ class OsInfoModule
 //		std::string domainName;
 //		void setSystemInfo(void);
 };
-
 
 #endif
