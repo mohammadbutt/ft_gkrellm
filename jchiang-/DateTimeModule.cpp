@@ -6,7 +6,7 @@
 /*   By: jchiang- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 20:23:54 by jchiang-          #+#    #+#             */
-/*   Updated: 2020/01/24 21:01:46 by jchiang-         ###   ########.fr       */
+/*   Updated: 2020/01/24 21:15:00 by jchiang-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ DateTimeModule::~DateTimeModule(void) { }
 int DateTimeModule::getCurrentYear(void) const { return (1900 + _currentTime->tm_year); }
 int DateTimeModule::getCurrentMonth(void) const { return (1 + _currentTime->tm_mon); }
 int DateTimeModule::getCurrentDay(void) const { return _currentTime->tm_mday; }
-int DateTimeModule::getCurrentHour(void) const { return (1 + _currentTime->tm_hour); }
-int DateTimeModule::getCurrentMin(void) const { return (1 + _currentTime->tm_min); }
+int DateTimeModule::getCurrentHour(void) const { return _currentTime->tm_hour; }
+int DateTimeModule::getCurrentMin(void) const { return _currentTime->tm_min; }
 int DateTimeModule::getCurrentSec(void) const { return (1 + _currentTime->tm_sec); }
 
 void DateTimeModule::refreshCurrentTime(void) { 
