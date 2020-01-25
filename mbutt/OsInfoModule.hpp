@@ -6,7 +6,7 @@
 /*   By: mbutt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 16:05:14 by mbutt             #+#    #+#             */
-/*   Updated: 2020/01/25 11:10:26 by mbutt            ###   ########.fr       */
+/*   Updated: 2020/01/25 14:36:26 by mbutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@
 #include <sys/utsname.h>
 #include <sys/sysctl.h>
 #include <thread>
+#include <fstream>
+#include <streambuf>
+#include <string>
+#include <sstream>
 
 
 class OsInfoModule
@@ -40,13 +44,16 @@ class OsInfoModule
 		std::string getMachine(void);
 		std::string getCpuInfo(void);
 		std::string getMacOs(void);
-		void getNetworkPackets(void);
-		int64_t getPhysicalMemoryBytes(void);
-		int		getPhysicalMemoryMbytes(void);
-		int		getPhysicalMemoryGbytes(void);
-		unsigned int getCpuCores(void);
+//		std::string getNetworkPacketsIn(void);
+//		std::string getNetworkPacketsOut(void);
+//		std::string getRamUsed(void);
+//		int64_t getPhysicalMemoryBytes(void);
+//		int		getPhysicalMemoryMbytes(void);
+//		int		getPhysicalMemoryGbytes(void);
+//		unsigned int getCpuCores(void);
 	private:
-		struct utsname _info;
+		struct	utsname _info;
+//		void	setter(void);
 //		unsigned int _physical_memory;
 };
 
