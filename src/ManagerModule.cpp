@@ -6,7 +6,7 @@
 /*   By: mbutt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 16:47:39 by mbutt             #+#    #+#             */
-/*   Updated: 2020/01/25 21:17:17 by jchiang-         ###   ########.fr       */
+/*   Updated: 2020/01/25 21:25:46 by jchiang-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,14 @@ void ManagerModule::setUpdateTopInfo(void)
 	else
 		while(i < 10)
 			std::getline(file, topInfo[i++]);
-	return;
+//	return;
 }
 
 void 		ManagerModule::update(void)
 {
-	setUpdateTopInfo();
-	_networkMode.getNetworkPacketIn(topInfo[8]);
+//	std::cout << "Manager Update" << std::endl;
+//	setUpdateTopInfo();
+//	_networkMode.getNetworkPacketIn(topInfo[8]);
 	_cpuModule.update();
 }
 std::string  ManagerModule::getterForNetworkModuleIn(void)

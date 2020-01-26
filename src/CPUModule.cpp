@@ -6,7 +6,7 @@
 /*   By: jchiang- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 09:21:11 by jchiang-          #+#    #+#             */
-/*   Updated: 2020/01/25 20:59:15 by jchiang-         ###   ########.fr       */
+/*   Updated: 2020/01/25 21:44:13 by jchiang-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,11 +79,4 @@ std::vector<std::string> CPUModule::getInfo(void) {
 	cpuInfo.push_back(_cpuExFeatures);
 	cpuInfo.push_back(_cpuUsage);
 	return cpuInfo;
-}
-
-std::string convertIntToChar(float number) {
-	char numberString[(((sizeof number) * CHAR_BIT) + 2)/3 + 2];
-	sprintf(numberString, "%f", number);
-	std::string tmp = numberString;
-	return tmp;
 }

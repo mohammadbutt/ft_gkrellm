@@ -6,7 +6,7 @@
 /*   By: jchiang- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 09:09:18 by jchiang-          #+#    #+#             */
-/*   Updated: 2020/01/25 20:56:39 by jchiang-         ###   ########.fr       */
+/*   Updated: 2020/01/25 21:44:17 by jchiang-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 #include <fstream>
 #include <string>
 #include <sstream>
+#include <math.h>
 #include <sys/sysctl.h>
 #include <mach/mach_init.h>
 #include <mach/mach_error.h>
@@ -57,7 +58,15 @@ class CPUModule : public IMonitorModule
 		void update(void);
 		std::vector<std::string> getInfo(void);
 };
-
-std::string convertIntToChar(float number);
+template <typename T>
+std::string convertIntToChar(T & number) {
+	char numberString[(((sizeof number) * CHAR_BIT) + 2)/3 + 2];
+	if (ceilf(number) == number)
+		sprintf(numberString, "%d", static_cast<int>(number));
+	else
+		sprintf(numberString, "%0.2f", static_cast<float>(number));
+	std::string tmp = numberString;
+	return tmp;
+}
 
 #endif

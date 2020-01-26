@@ -6,14 +6,14 @@
 /*   By: jchiang- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 15:17:19 by jchiang-          #+#    #+#             */
-/*   Updated: 2020/01/25 21:17:20 by jchiang-         ###   ########.fr       */
+/*   Updated: 2020/01/25 21:33:00 by jchiang-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "NcursesDisplay.hpp"
 
 NcursesDisplay::NcursesDisplay(void) { 
-	initscr();
+//	initscr();
 //	_dtimer = DateTimeModule();
 }
 NcursesDisplay::NcursesDisplay(const NcursesDisplay & copy) { *this = copy; }
@@ -24,12 +24,15 @@ NcursesDisplay &NcursesDisplay::operator = (const NcursesDisplay & inputClass) {
 	return *this;
 }
 
-NcursesDisplay::~NcursesDisplay(void) { endwin(); }
+NcursesDisplay::~NcursesDisplay(void) { 
+	//endwin(); 
+	}
 
 void NcursesDisplay::render(ManagerModule * mn) { 
 	// do something
 	mn->update();
 	mn->allModuleInfo();
+	std::cout << "Try to print out the Module" << std::endl;
 	for (std::vector<std::string>::iterator it = mn->cpuInfo.begin(); it != mn->cpuInfo.end(); ++it) {
 		std::cout << *it << std::endl;
 	}
