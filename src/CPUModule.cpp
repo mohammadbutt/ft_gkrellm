@@ -6,7 +6,7 @@
 /*   By: jchiang- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 09:21:11 by jchiang-          #+#    #+#             */
-/*   Updated: 2020/01/25 21:44:13 by jchiang-         ###   ########.fr       */
+/*   Updated: 2020/01/26 09:35:57 by jchiang-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,12 +71,12 @@ void CPUModule::update(void) {
 
 std::vector<std::string> CPUModule::getInfo(void) {
 	std::vector<std::string> cpuInfo;
-	cpuInfo.push_back(convertIntToChar(_cpuCoreCount));
-	cpuInfo.push_back(convertIntToChar(_cpuCasheSize));
-	cpuInfo.push_back(convertIntToChar(_cpuThreadCount));
-	cpuInfo.push_back(convertIntToChar(_cpuUsageFloat));
+	cpuInfo.push_back("Core Count: " + convertIntToChar(_cpuCoreCount));
+	cpuInfo.push_back("Cashe Size: " + convertIntToChar(_cpuCasheSize));
+	cpuInfo.push_back("Thread Count: " + convertIntToChar(_cpuThreadCount));
+	cpuInfo.push_back("CPU Usage: " + convertIntToChar(_cpuUsageFloat) + "%");
 	cpuInfo.push_back(_cpuBrandString);
 	cpuInfo.push_back(_cpuExFeatures);
-	cpuInfo.push_back(_cpuUsage);
+	//cpuInfo.push_back(_cpuUsage);
 	return cpuInfo;
 }
