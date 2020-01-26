@@ -6,27 +6,28 @@
 #    By: jchiang- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/30 19:50:43 by jchiang-          #+#    #+#              #
-#    Updated: 2020/01/25 19:27:09 by jchiang-         ###   ########.fr        #
+#    Updated: 2020/01/26 13:49:33 by jchiang-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = ft_gkrellm
 
-CFLAG = -std=c++98 -Wall -Wextra -Werror -lncurses
+CFLAG = -std=c++98 -Wall -Wextra -Werror -lncurses 
 
-INC = -Iincludes
+INC = -I includes -I ./SFML/include
 
 SRC =  *.cpp
 
+FRAMEWORK = -lncurses -framework sfml-graphics -framework sfml-window -framework sfml-system -F SFML/Frameworks
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	clang++ $(CFLAG) $(SRC) -o $(NAME)
+	clang++ $(CFLAG) $(INC) $(SRC) $(FRAMEWORK) -o $(NAME)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.cpp
 	mkdir -p obj
-	clang++ -c $(CFLAG)  $< -o $@
+	clang++ -c $(CFLAG) $(INC) $< -o $@
 
 clean:
 	/bin/rm -rf $(OBJ_DIR)
