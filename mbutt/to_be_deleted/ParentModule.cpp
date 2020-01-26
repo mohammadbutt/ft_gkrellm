@@ -6,7 +6,7 @@
 /*   By: mbutt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 14:40:25 by mbutt             #+#    #+#             */
-/*   Updated: 2020/01/25 15:31:28 by mbutt            ###   ########.fr       */
+/*   Updated: 2020/01/25 16:41:35 by mbutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,20 @@
 
 ParentModule::ParentModule(void)
 {
-	std::cout << "Calling constructor" << std::endl;
+	std::cout << "ParentModule constructor" << std::endl;
 	_setUpdateTopInfo();
 	return;
 }
 
 ParentModule::~ParentModule(void)
 {
-	std::cout << "Calling desctructor" << std::endl;
+	std::cout << "ParentModule desctructor" << std::endl;
 	return;
 }
 
 void ParentModule::_setUpdateTopInfo(void)
 {
+	int i = 0;
 	system("top -l1 | head -10 > /tmp/topGrepFile.txt");
 	std::ifstream file("/tmp/topGrepFile.txt");
 	std::stringstream topInfoBuffer;
@@ -42,11 +43,11 @@ std::string ParentModule::getTopInfo(void)
 	return(_topInfo);
 }
 
-/*
+
 int main(void)
 {
 	ParentModule pr;
 	std::cout << pr.getTopInfo() << std::endl;
 	std::cout << pr.getTopInfo() << std::endl;
 }
-*/
+
