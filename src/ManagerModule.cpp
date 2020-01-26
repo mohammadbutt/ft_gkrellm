@@ -6,7 +6,7 @@
 /*   By: mbutt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 16:47:39 by mbutt             #+#    #+#             */
-/*   Updated: 2020/01/25 19:54:13 by jchiang-         ###   ########.fr       */
+/*   Updated: 2020/01/25 20:02:15 by jchiang-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ ManagerModule::ManagerModule(void)
 	setUpdateTopInfo();
 
 	_networkMode = NetworkModule();
-	_ncursesDisplay = NcursesDisplay();
+//	_ncursesDisplay = NcursesDisplay();
 	return;
 }
 
@@ -79,10 +79,11 @@ std::string ManagerModule::getTopInfo(int index)
 /* ---------------------------------------------------------------------------- */
 /* ---------------------     Display Section    ------------------------------- */
 /* ---------------------------------------------------------------------------- */
-
+/*
 void ManagerModule::render(void)
 {
 	_ncursesDisplay.render();
 }
+*/
 
 	
