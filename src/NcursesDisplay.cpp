@@ -6,7 +6,7 @@
 /*   By: jchiang- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 15:17:19 by jchiang-          #+#    #+#             */
-/*   Updated: 2020/01/26 09:36:47 by jchiang-         ###   ########.fr       */
+/*   Updated: 2020/01/26 10:09:47 by jchiang-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ NcursesDisplay &NcursesDisplay::operator = (const NcursesDisplay & inputClass) {
 	return *this;
 }
 
-NcursesDisplay::~NcursesDisplay(void) { 
+NcursesDisplay::~NcursesDisplay(void) {
 	endwin(); 
 }
 
@@ -56,6 +56,7 @@ void NcursesDisplay::render(ManagerModule * mn) {
 		mn->update();
 		mn->allModuleInfo();
 		cpuInfoDisplay(mn->cpuInfo);
+		refresh();
 		while (!waitForOneSec(t1));
 	}
 }
@@ -64,7 +65,10 @@ void NcursesDisplay::cpuInfoDisplay(std::vector<std::string> & cpuInfo) {
 	int i = 0;
 
 	for (std::vector<std::string>::iterator it = cpuInfo.begin(); it != cpuInfo.end(); ++it) {
-		mvprintw(2 + i , 2,"%s", (*it).c_str());	
+		if (i == 3)
+			mvprintw(CPUPOSITION_Y + i , CPUPOSITION_X,"%s", CLERA_LINE);	
+		mvprintw(CPUPOSITION_Y + i , CPUPOSITION_X,"%s", (*it).c_str());	
 		i++;
 	}
+	mvprintw(CPUPOSITION_Y + i , CPUPOSITION_X,"%s", SEPERATE_LINE);	
 }

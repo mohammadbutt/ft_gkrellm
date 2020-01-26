@@ -6,7 +6,7 @@
 /*   By: jchiang- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/26 07:51:16 by jchiang-          #+#    #+#             */
-/*   Updated: 2020/01/26 09:21:25 by jchiang-         ###   ########.fr       */
+/*   Updated: 2020/01/26 10:08:59 by jchiang-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,12 @@
 #include <iostream>
 
 
-#define ESCAPE_KEY 27
+# define ESCAPE_KEY 27
+# define CLERA_LINE "                                      "
+# define SEPERATE_LINE "=============================================================== "
+
+# define CPUPOSITION_Y 2
+# define CPUPOSITION_X 2
 
 typedef struct s_point {
 	int x;
