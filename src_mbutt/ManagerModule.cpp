@@ -6,7 +6,7 @@
 /*   By: mbutt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 16:47:39 by mbutt             #+#    #+#             */
-/*   Updated: 2020/01/25 22:09:11 by mbutt            ###   ########.fr       */
+/*   Updated: 2020/01/26 11:01:45 by mbutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,14 @@ void 		ManagerModule::update(void)
 	setUpdateTopInfo();
 	std::vector<std::string> vectorNetworkModule;
 	std::vector<std::string> vectorOsInfoModule;
-	vectorNetworkModule = _networkMode.updateNetworkModule(topInfo);
+	std::vector<std::string> vectorRamModule;
+
+//	std::cout << "Comes inside ManagerModule::update" << std::endl;
+
+
 	vectorOsInfoModule = _osInfoMode.updateOsInfoModule();
+	vectorNetworkModule = _networkMode.updateNetworkModule(topInfo);
+	vectorRamModule = _ramMode.getInfo(topInfo);
 
 
 /*

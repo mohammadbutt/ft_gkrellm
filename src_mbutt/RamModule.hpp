@@ -6,7 +6,7 @@
 /*   By: mbutt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 15:55:27 by mbutt             #+#    #+#             */
-/*   Updated: 2020/01/25 22:26:57 by mbutt            ###   ########.fr       */
+/*   Updated: 2020/01/26 11:01:32 by mbutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@ class RamModule : public IMonitorModule//: public ParentModule
 		~RamModule(void);
 //		std::string		getRamUsed(void);
 //		std::string		getRamUnUsed(void);
-		int64_t						getPhysicalMemoryBytes(void);
-		int							getPhysicalMemoryMbytes(void);
-		int							getPhysicalMemoryGbytes(void);
-		
+		std::string					getPhysicalMemoryBytes(void);
+		std::string					getPhysicalMemoryMbytes(void);
+		std::string					getPhysicalMemoryGbytes(void);	
 		std::string					getPhysicalMemoryUsed(std::string topInfo);
-		std::string					getPhysciaMemoryUnused(std::string topInfo);
+		std::string					getPhysicalMemoryUnUsed(std::string topInfo);
 		void						update(void);
-		std::vector<std::string>	updateRamModule(std::string topInfo);
+		std::vector<std::string>	getInfo(std::string topInfo[]);
+//		std::vector<std::string>	updateRamModule(std::string topInfo);
 	private:
 
 };
