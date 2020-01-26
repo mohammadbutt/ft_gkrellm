@@ -6,7 +6,7 @@
 /*   By: jchiang- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/26 07:51:16 by jchiang-          #+#    #+#             */
-/*   Updated: 2020/01/26 10:56:13 by jchiang-         ###   ########.fr       */
+/*   Updated: 2020/01/26 12:10:41 by jchiang-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@
 # define CPUPOSITION_X 2
 # define OSPOSITION_Y 12
 # define OSPOSITION_X 2
-
+# define NWPOSITION_Y 20
+# define NWPOSITION_X 2
 
 typedef struct s_point {
 	int x;

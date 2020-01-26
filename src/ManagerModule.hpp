@@ -6,7 +6,7 @@
 /*   By: mbutt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 16:38:02 by mbutt             #+#    #+#             */
-/*   Updated: 2020/01/26 10:51:56 by jchiang-         ###   ########.fr       */
+/*   Updated: 2020/01/26 11:34:40 by jchiang-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,14 @@ class ManagerModule
 		std::vector<std::string> cpuInfo;
 		std::vector<std::string> osInfo;
 		std::vector<std::string> tmInfo;
+		std::vector<std::string> nwInfo;
 		void allModuleInfo(void);
 	private:
+		std::vector<std::string> _topInfo;
 		NetworkModule _networkMode;
 		CPUModule _cpuModule;
 		OsInfoModule _osModule;
 		DateTimeModule _tmModule;
-		
 };
 
 # endif
