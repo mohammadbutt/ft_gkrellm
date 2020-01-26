@@ -6,7 +6,7 @@
 /*   By: mbutt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 16:47:39 by mbutt             #+#    #+#             */
-/*   Updated: 2020/01/25 21:25:46 by jchiang-         ###   ########.fr       */
+/*   Updated: 2020/01/25 22:26:03 by jchiang-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,6 @@ std::string ManagerModule::getTopInfo(int index)
 
 void ManagerModule::allModuleInfo(void)
 {
-	std::cout << "Try to update all info" << std::endl;
 	cpuInfo = _cpuModule.getInfo();
 }
 
