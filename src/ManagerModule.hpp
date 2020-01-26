@@ -6,7 +6,7 @@
 /*   By: mbutt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 16:38:02 by mbutt             #+#    #+#             */
-/*   Updated: 2020/01/25 20:02:27 by jchiang-         ###   ########.fr       */
+/*   Updated: 2020/01/25 20:55:16 by jchiang-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 # define MANAGERMODULE_HPP
 
 #include "NetworkModule.hpp"
+#include "CPUModule.hpp"
 //#include "NcursesDisplay.hpp"
 //#include "RamModule.hpp"
 
+#include <vector>
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -44,9 +46,14 @@ class ManagerModule
 		/* ------------------------------------ */
 		/* ------------ Display Section ------- */
 		/* ------------------------------------ */
+		std::vector<std::string> cpuInfo;
 	//	void render(void);
+	//
+		void allModuleInfo(void);
 	private:
 		NetworkModule _networkMode;
+		CPUModule _cpuModule;
+		
 //		NcursesDisplay _ncursesDisplay;
 };
 

@@ -6,26 +6,27 @@
 /*   By: jchiang- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 15:02:33 by jchiang-          #+#    #+#             */
-/*   Updated: 2020/01/25 17:01:06 by jchiang-         ###   ########.fr       */
+/*   Updated: 2020/01/25 21:05:38 by jchiang-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef NCURSESDISPLAY_HPP
 # define NCURSESDISPLAY_HPP
 
+#include "IMonitorDisplay.hpp"
+#include "ManagerModule.hpp"
+
+#include <vector>
 #include <ncurses.h>
 #include <string.h>
 
-#include "IMonitorDisplay.hpp"
-#include "DateTimeModule.hpp"
-
-class DateTimeModule;
+//class DateTimeModule;
 
 class NcursesDisplay : public IMonitorDisplay
 {
 	private:
 		WINDOW *_win;
-		DateTimeModule _dtimer;
+//		DateTimeModule _dtimer;
 	
 	public:
 		NcursesDisplay(void);
@@ -33,10 +34,10 @@ class NcursesDisplay : public IMonitorDisplay
 		NcursesDisplay &operator = (const NcursesDisplay & inputClass);
 		~NcursesDisplay(void);
 
-		void render(void);
+		void render(ManagerModule * mn);
 };
 
 // Testing
-void runTimer(DateTimeModule *dtimer);
+//void runTimer(DateTimeModule *dtimer);
 
 #endif

@@ -6,13 +6,16 @@
 /*   By: jchiang- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 09:09:18 by jchiang-          #+#    #+#             */
-/*   Updated: 2020/01/25 14:45:26 by jchiang-         ###   ########.fr       */
+/*   Updated: 2020/01/25 20:56:39 by jchiang-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CPUMODULE_HPP
 # define CPUMODULE_HPP
 
+#include "IMonitorModule.hpp"
+
+#include <vector>
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -27,7 +30,7 @@
  * sysctl -a | grep machdep.cpu
  * Read the info as needed 
  */
-class CPUModule
+class CPUModule : public IMonitorModule
 {
 	private:
 		int _cpuCoreCount;
@@ -52,6 +55,9 @@ class CPUModule
 		std::string getCpuUsage(void) const;
 
 		void update(void);
+		std::vector<std::string> getInfo(void);
 };
+
+std::string convertIntToChar(float number);
 
 #endif

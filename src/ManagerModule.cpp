@@ -6,7 +6,7 @@
 /*   By: mbutt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 16:47:39 by mbutt             #+#    #+#             */
-/*   Updated: 2020/01/25 20:02:15 by jchiang-         ###   ########.fr       */
+/*   Updated: 2020/01/25 21:17:17 by jchiang-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ ManagerModule::ManagerModule(void)
 	setUpdateTopInfo();
 
 	_networkMode = NetworkModule();
-//	_ncursesDisplay = NcursesDisplay();
+	_cpuModule = CPUModule();
+	//	_ncursesDisplay = NcursesDisplay();
 	return;
 }
 
@@ -52,6 +53,7 @@ void 		ManagerModule::update(void)
 {
 	setUpdateTopInfo();
 	_networkMode.getNetworkPacketIn(topInfo[8]);
+	_cpuModule.update();
 }
 std::string  ManagerModule::getterForNetworkModuleIn(void)
 {
@@ -79,11 +81,12 @@ std::string ManagerModule::getTopInfo(int index)
 /* ---------------------------------------------------------------------------- */
 /* ---------------------     Display Section    ------------------------------- */
 /* ---------------------------------------------------------------------------- */
-/*
-void ManagerModule::render(void)
+
+void ManagerModule::allModuleInfo(void)
 {
-	_ncursesDisplay.render();
+	std::cout << "Try to update all info" << std::endl;
+	cpuInfo = _cpuModule.getInfo();
 }
-*/
+
 
 	
