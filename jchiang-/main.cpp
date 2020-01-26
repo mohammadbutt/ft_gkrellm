@@ -6,7 +6,7 @@
 /*   By: jchiang- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 20:35:26 by jchiang-          #+#    #+#             */
-/*   Updated: 2020/01/25 15:31:33 by jchiang-         ###   ########.fr       */
+/*   Updated: 2020/01/25 17:10:34 by jchiang-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,11 @@ void doTimer(DateTimeModule dtime)
 {
 	dtime.refreshCurrentTime();
 	std::cout << "Year: " << dtime.getCurrentYear() << std::endl;
-	std::cout << "Month: "<< dtime.getCurrentMonth() << std::endl;
-	std::cout << "Day: "  << dtime.getCurrentDay() << std::endl;
-	std::cout << "Time: " << dtime.getCurrentHour() << ": ";
-	std::cout << dtime.getCurrentMin() << ": ";
-	std::cout << dtime.getCurrentSec() << std::endl;
+//	std::cout << "Month: "<< dtime.getCurrentMonth() << std::endl;
+//	std::cout << "Day: "  << dtime.getCurrentDay() << std::endl;
+//	std::cout << "Time: " << dtime.getCurrentHour() << ": ";
+//	std::cout << dtime.getCurrentMin() << ": ";
+//	std::cout << dtime.getCurrentSec() << std::endl;
 }
 
 void testTimerModule(void)

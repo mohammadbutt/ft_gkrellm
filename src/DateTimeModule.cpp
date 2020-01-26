@@ -6,7 +6,7 @@
 /*   By: jchiang- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 20:23:54 by jchiang-          #+#    #+#             */
-/*   Updated: 2020/01/25 18:55:49 by jchiang-         ###   ########.fr       */
+/*   Updated: 2020/01/25 19:57:07 by jchiang-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,8 @@ std::string convertIntToChar(int number) {
 	sprintf(numberString, "%d", number);
 	std::string tmp = numberString;
 	return tmp;
+}
+
+void DateTimeModule::update(void) {
+
 }

@@ -6,18 +6,20 @@
 /*   By: jchiang- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 20:07:05 by jchiang-          #+#    #+#             */
-/*   Updated: 2020/01/25 18:54:13 by jchiang-         ###   ########.fr       */
+/*   Updated: 2020/01/25 19:56:02 by jchiang-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DATETIMEMODULE_HPP
 # define DATETIMEMODULE_HPP
 
+#include "IMonitorModule.hpp"
+
 #include <ctime>
 #include <iostream>
 #include <string>
 
-class DateTimeModule
+class DateTimeModule : public IMonitorModule
 {
 	private:
 		time_t _now;
@@ -38,6 +40,8 @@ class DateTimeModule
 
 		// Refresh Timer
 		void refreshCurrentTime(void);
+
+		void update(void);
 };
 
 std::string convertIntToChar(int number);
