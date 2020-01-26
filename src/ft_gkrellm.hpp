@@ -6,7 +6,7 @@
 /*   By: jchiang- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/26 07:51:16 by jchiang-          #+#    #+#             */
-/*   Updated: 2020/01/26 10:08:59 by jchiang-         ###   ########.fr       */
+/*   Updated: 2020/01/26 10:56:13 by jchiang-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,21 @@
 #include <iostream>
 
 
+/* --------------------------------------------------------------------------- */
+/* -----------------------      Macro Define     ----------------------------- */
+/* --------------------------------------------------------------------------- */
+
 # define ESCAPE_KEY 27
 # define CLERA_LINE "                                      "
 # define SEPERATE_LINE "=============================================================== "
 
-# define CPUPOSITION_Y 2
+# define TMPOSITION_Y 2
+# define TMPOSITION_X 2
+# define CPUPOSITION_Y 5
 # define CPUPOSITION_X 2
+# define OSPOSITION_Y 12
+# define OSPOSITION_X 2
+
 
 typedef struct s_point {
 	int x;

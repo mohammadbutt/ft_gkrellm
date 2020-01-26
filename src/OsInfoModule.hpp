@@ -6,7 +6,7 @@
 /*   By: mbutt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 16:05:14 by mbutt             #+#    #+#             */
-/*   Updated: 2020/01/25 14:36:26 by mbutt            ###   ########.fr       */
+/*   Updated: 2020/01/26 10:17:45 by jchiang-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,10 @@
 #include <streambuf>
 #include <string>
 #include <sstream>
+#include <vector>
+#include "IMonitorModule.hpp"
 
-
-class OsInfoModule
+class OsInfoModule : public IMonitorModule
 {
 	public:
 		OsInfoModule(void);
@@ -44,6 +45,8 @@ class OsInfoModule
 		std::string getMachine(void);
 		std::string getCpuInfo(void);
 		std::string getMacOs(void);
+		std::vector<std::string> getInfo(void);
+		void 		update(void); // Jeff
 //		std::string getNetworkPacketsIn(void);
 //		std::string getNetworkPacketsOut(void);
 //		std::string getRamUsed(void);

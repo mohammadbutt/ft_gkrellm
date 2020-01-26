@@ -6,7 +6,7 @@
 /*   By: jchiang- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 20:07:05 by jchiang-          #+#    #+#             */
-/*   Updated: 2020/01/25 19:56:02 by jchiang-         ###   ########.fr       */
+/*   Updated: 2020/01/26 10:40:37 by jchiang-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,8 @@ class DateTimeModule : public IMonitorModule
 		std::string getCurrentMin(void) const;
 		std::string getCurrentSec(void) const;
 
-		// Refresh Timer
-		void refreshCurrentTime(void);
-
 		void update(void);
+		std::vector<std::string> getInfo(void);
 };
 
 std::string convertIntToChar(int number);

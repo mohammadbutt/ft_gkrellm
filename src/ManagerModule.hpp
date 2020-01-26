@@ -6,16 +6,17 @@
 /*   By: mbutt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 16:38:02 by mbutt             #+#    #+#             */
-/*   Updated: 2020/01/25 20:55:16 by jchiang-         ###   ########.fr       */
+/*   Updated: 2020/01/26 10:51:56 by jchiang-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MANAGERMODULE_HPP
 # define MANAGERMODULE_HPP
 
+#include "DateTimeModule.hpp"
+#include "OsInfoModule.hpp"
 #include "NetworkModule.hpp"
 #include "CPUModule.hpp"
-//#include "NcursesDisplay.hpp"
 //#include "RamModule.hpp"
 
 #include <vector>
@@ -47,14 +48,15 @@ class ManagerModule
 		/* ------------ Display Section ------- */
 		/* ------------------------------------ */
 		std::vector<std::string> cpuInfo;
-	//	void render(void);
-	//
+		std::vector<std::string> osInfo;
+		std::vector<std::string> tmInfo;
 		void allModuleInfo(void);
 	private:
 		NetworkModule _networkMode;
 		CPUModule _cpuModule;
+		OsInfoModule _osModule;
+		DateTimeModule _tmModule;
 		
-//		NcursesDisplay _ncursesDisplay;
 };
 
 # endif

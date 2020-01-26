@@ -6,7 +6,7 @@
 /*   By: jchiang- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 15:17:19 by jchiang-          #+#    #+#             */
-/*   Updated: 2020/01/26 10:09:47 by jchiang-         ###   ########.fr       */
+/*   Updated: 2020/01/26 11:03:49 by jchiang-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,23 @@ void NcursesDisplay::render(ManagerModule * mn) {
 			break;
 		mn->update();
 		mn->allModuleInfo();
+		timeInfoDisplay(mn->tmInfo);
 		cpuInfoDisplay(mn->cpuInfo);
+		osInfoDisplay(mn->osInfo);
 		refresh();
 		while (!waitForOneSec(t1));
 	}
+}
+
+void NcursesDisplay::timeInfoDisplay(std::vector<std::string> & timeInfo) {
+	int i = 0;
+	for (std::vector<std::string>::iterator it = timeInfo.begin(); it != timeInfo.end(); ++it) {
+		if (i == 1)
+			mvprintw(TMPOSITION_Y + i , TMPOSITION_X,"%s", CLERA_LINE);	
+		mvprintw(TMPOSITION_Y + i, TMPOSITION_X,"%s", (*it).c_str());
+		i++;
+	}
+	mvprintw(TMPOSITION_Y + i , TMPOSITION_X,"%s", SEPERATE_LINE);	
 }
 
 void NcursesDisplay::cpuInfoDisplay(std::vector<std::string> & cpuInfo) {
@@ -71,4 +84,14 @@ void NcursesDisplay::cpuInfoDisplay(std::vector<std::string> & cpuInfo) {
 		i++;
 	}
 	mvprintw(CPUPOSITION_Y + i , CPUPOSITION_X,"%s", SEPERATE_LINE);	
+}
+
+void NcursesDisplay::osInfoDisplay(std::vector<std::string> & osInfo) {
+	int i = 0;
+
+	for (std::vector<std::string>::iterator it = osInfo.begin(); it != osInfo.end(); ++it) {
+		mvprintw(OSPOSITION_Y + i , OSPOSITION_X,"%s", (*it).c_str());	
+		i++;
+	}
+	mvprintw(OSPOSITION_Y + i , OSPOSITION_X,"%s", SEPERATE_LINE);	
 }

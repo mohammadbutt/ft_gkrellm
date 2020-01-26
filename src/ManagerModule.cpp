@@ -6,7 +6,7 @@
 /*   By: mbutt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 16:47:39 by mbutt             #+#    #+#             */
-/*   Updated: 2020/01/25 22:26:03 by jchiang-         ###   ########.fr       */
+/*   Updated: 2020/01/26 11:05:09 by jchiang-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ ManagerModule::ManagerModule(void)
 
 	_networkMode = NetworkModule();
 	_cpuModule = CPUModule();
-	//	_ncursesDisplay = NcursesDisplay();
+	_osModule = OsInfoModule();
+	_tmModule = DateTimeModule();
 	return;
 }
 
@@ -34,6 +35,15 @@ ManagerModule::~ManagerModule(void)
 /* ---------------------------------------------------------------------------- */
 /* ----------------------     Module Section   -------------------------------- */
 /* ---------------------------------------------------------------------------- */
+
+void 		ManagerModule::update(void)
+{
+//	std::cout << "Manager Update" << std::endl;
+//	setUpdateTopInfo();
+//	_networkMode.getNetworkPacketIn(topInfo[8]);
+	_cpuModule.update();
+	_tmModule.update();
+}
 
 void ManagerModule::setUpdateTopInfo(void)
 {
@@ -49,13 +59,6 @@ void ManagerModule::setUpdateTopInfo(void)
 //	return;
 }
 
-void 		ManagerModule::update(void)
-{
-//	std::cout << "Manager Update" << std::endl;
-//	setUpdateTopInfo();
-//	_networkMode.getNetworkPacketIn(topInfo[8]);
-	_cpuModule.update();
-}
 std::string  ManagerModule::getterForNetworkModuleIn(void)
 {
 //	std::cout << "Printing top info:" << std::endl << std::endl;
@@ -86,6 +89,8 @@ std::string ManagerModule::getTopInfo(int index)
 void ManagerModule::allModuleInfo(void)
 {
 	cpuInfo = _cpuModule.getInfo();
+	osInfo = _osModule.getInfo();
+	tmInfo = _tmModule.getInfo();
 }
 
 
