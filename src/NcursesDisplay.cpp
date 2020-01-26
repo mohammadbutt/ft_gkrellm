@@ -6,7 +6,7 @@
 /*   By: jchiang- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 15:17:19 by jchiang-          #+#    #+#             */
-/*   Updated: 2020/01/26 12:02:40 by jchiang-         ###   ########.fr       */
+/*   Updated: 2020/01/26 13:42:02 by mbutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void NcursesDisplay::render(ManagerModule * mn) {
 		cpuInfoDisplay(mn->cpuInfo);
 		osInfoDisplay(mn->osInfo);
 		networkInfoDisplay(mn->nwInfo);
+		ramInfoDisplay(mn->rmInfo); // Added by mbutt
 		refresh();
 		while (!waitForOneSec(t1));
 	}
@@ -105,4 +106,16 @@ void NcursesDisplay::networkInfoDisplay(std::vector<std::string> &nwInfo) {
 		i++;
 	}
 	mvprintw(NWPOSITION_Y + i , NWPOSITION_X,"%s", SEPERATE_LINE);	
+}
+
+void NcursesDisplay::ramInfoDisplay(std::vector<std::string> &ramInfo)
+{
+	int i = 0;
+	while(i < ramInfo.size())
+	{
+		mvprintw(RMPOSITION_Y + i, RMPOSITION_X,"%s", CLERA_LINE);		
+		mvprintw(RMPOSITION_Y + i, RMPOSITION_X, "%s", ramInfo[i].c_str());
+		i++;
+	}
+	mvprintw(RMPOSITION_Y + i, RMPOSITION_X, "%s", SEPERATE_LINE);
 }

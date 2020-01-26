@@ -6,7 +6,7 @@
 /*   By: mbutt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 16:38:02 by mbutt             #+#    #+#             */
-/*   Updated: 2020/01/26 11:34:40 by jchiang-         ###   ########.fr       */
+/*   Updated: 2020/01/26 12:38:54 by mbutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "OsInfoModule.hpp"
 #include "NetworkModule.hpp"
 #include "CPUModule.hpp"
-//#include "RamModule.hpp"
+#include "RamModule.hpp" // Added by mbutt
 
 #include <vector>
 #include <iostream>
@@ -36,11 +36,11 @@ class ManagerModule
 		/* ------------------------------------ */
 		/* ------------- Module Section ------- */
 		/* ------------------------------------ */
-		std::string getTopInfo(int index);
-		std::string topInfo[10];
+//		std::string getTopInfo(int index);				Not needed
+//		std::string topInfo[10];						Not needed
 		void setUpdateTopInfo(void);
-		std::string getterForNetworkModuleIn(void);
-		std::string getterForNetworkModuleOut(void);
+//		std::string getterForNetworkModuleIn(void);		Not needed
+//		std::string getterForNetworkModuleOut(void);	Not needed
 
 		void update(void);
 		
@@ -51,13 +51,15 @@ class ManagerModule
 		std::vector<std::string> osInfo;
 		std::vector<std::string> tmInfo;
 		std::vector<std::string> nwInfo;
+		std::vector<std::string> rmInfo; 	// Added by mbutt
 		void allModuleInfo(void);
 	private:
-		std::vector<std::string> _topInfo;
-		NetworkModule _networkMode;
-		CPUModule _cpuModule;
-		OsInfoModule _osModule;
-		DateTimeModule _tmModule;
+		std::vector<std::string>	_topInfo;
+		NetworkModule				_networkMode;
+		CPUModule					_cpuModule;
+		OsInfoModule				_osModule;
+		DateTimeModule				_tmModule;
+		RamModule					_ramModule; // Added by mbutt
 };
 
 # endif

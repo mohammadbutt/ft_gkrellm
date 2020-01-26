@@ -6,7 +6,7 @@
 /*   By: mbutt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 16:47:39 by mbutt             #+#    #+#             */
-/*   Updated: 2020/01/26 12:04:30 by jchiang-         ###   ########.fr       */
+/*   Updated: 2020/01/26 12:38:51 by mbutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ ManagerModule::ManagerModule(void)
 	_cpuModule = CPUModule();
 	_osModule = OsInfoModule();
 	_tmModule = DateTimeModule();
+	_ramModule = RamModule();		// Added by mbutt
 	return;
 }
 
@@ -44,6 +45,7 @@ void 		ManagerModule::update(void)
 	_cpuModule.update();
 	_tmModule.update();
 	_networkMode.setInfo(_topInfo);
+	_ramModule.setInfo(_topInfo);					// Added by mbutt
 }
 
 void ManagerModule::setUpdateTopInfo(void)
@@ -75,6 +77,7 @@ void ManagerModule::setUpdateTopInfo(void)
 //	return;
 }
 
+/*
 std::string  ManagerModule::getterForNetworkModuleIn(void)
 {
 //	std::cout << "Printing top info:" << std::endl << std::endl;
@@ -82,7 +85,8 @@ std::string  ManagerModule::getterForNetworkModuleIn(void)
 	return(_networkMode.getNetworkPacketIn(topInfo[8]));
 //	std::cout << std::endl;
 }
-
+*/
+/*
 std::string  ManagerModule::getterForNetworkModuleOut(void)
 {
 //	std::cout << "Printing top info:" << std::endl << std::endl;
@@ -90,13 +94,16 @@ std::string  ManagerModule::getterForNetworkModuleOut(void)
 	return(_networkMode.getNetworkPacketOut(topInfo[8]));
 //	std::cout << std::endl;
 }
+*/
 
+/*
 std::string ManagerModule::getTopInfo(int index)
 {
 //	_setTopInfo();
 	
 	return(topInfo[index]);
 }
+*/
 
 /* ---------------------------------------------------------------------------- */
 /* ---------------------     Display Section    ------------------------------- */
@@ -108,7 +115,5 @@ void ManagerModule::allModuleInfo(void)
 	osInfo = _osModule.getInfo();
 	tmInfo = _tmModule.getInfo();
 	nwInfo = _networkMode.getInfo();
-}
-
-
-	
+	rmInfo = _ramModule.getInfo();				// Added by mbutt
+}	

@@ -6,7 +6,7 @@
 /*   By: mbutt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 15:18:49 by mbutt             #+#    #+#             */
-/*   Updated: 2020/01/26 12:05:30 by jchiang-         ###   ########.fr       */
+/*   Updated: 2020/01/26 13:01:13 by mbutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,8 @@ std::vector<std::string> NetworkModule::getInfo(void)
 	std::vector<std::string> trimmedVector;
 //	trimmedVector.push_back(getNetworkPacketIn(Info[8]));
 //	trimmedVector.push_back(getNetworkPacketOut(Info[8]));
-	if (!_topInfo.empty()) {
+	if (!_topInfo.empty())
+	{
 		trimmedVector.push_back("Network In: " + getNetworkPacketIn(_topInfo[8]));
 		trimmedVector.push_back("Network Out: " + getNetworkPacketOut(_topInfo[8]));
 	}
@@ -61,7 +62,8 @@ std::vector<std::string> NetworkModule::getInfo(void)
 
 }
 
-void NetworkModule::setInfo(std::vector<std::string> Info) {
+void NetworkModule::setInfo(std::vector<std::string> Info)
+{
 	_topInfo = Info;
 }
 
