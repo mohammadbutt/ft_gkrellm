@@ -6,7 +6,7 @@
 /*   By: jchiang- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 15:17:19 by jchiang-          #+#    #+#             */
-/*   Updated: 2020/01/26 13:42:02 by mbutt            ###   ########.fr       */
+/*   Updated: 2020/01/26 13:44:21 by mbutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ void NcursesDisplay::networkInfoDisplay(std::vector<std::string> &nwInfo) {
 void NcursesDisplay::ramInfoDisplay(std::vector<std::string> &ramInfo)
 {
 	int i = 0;
-	while(i < ramInfo.size())
+	while(i < static_cast<int>(ramInfo.size()))
 	{
 		mvprintw(RMPOSITION_Y + i, RMPOSITION_X,"%s", CLERA_LINE);		
 		mvprintw(RMPOSITION_Y + i, RMPOSITION_X, "%s", ramInfo[i].c_str());
