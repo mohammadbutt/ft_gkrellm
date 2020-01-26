@@ -6,7 +6,7 @@
 /*   By: mbutt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 15:57:35 by mbutt             #+#    #+#             */
-/*   Updated: 2020/01/25 17:09:08 by mbutt            ###   ########.fr       */
+/*   Updated: 2020/01/25 22:26:54 by mbutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ int RamModule::getPhysicalMemoryMbytes(void)
 	return(physicalMemory / (1024 * 1024));
 }
 
-
 int RamModule::getPhysicalMemoryGbytes(void)
 {
 	int mib[2];
@@ -84,6 +83,25 @@ int RamModule::getPhysicalMemoryGbytes(void)
 
 	return(physicalMemory / (1024 * 1024 * 1024));
 }
+
+std::string RamModule::getPhysicalMemoryUsed(std::string topInfo)
+{
+	std::cout << topInfo.substr(9, 5) << std::endl;
+	return("PhysicalMemoryUsed");
+}
+
+void RamModule::update(void)
+{
+	std::cout << topinfo.substr(35, 5) << std::endl;
+	return("This");
+
+}
+
+std::vector<std::string> RamModule::updateRamModule(std::string topInfo)
+{
+
+}
+
 
 /*
 int main(void)

@@ -6,7 +6,7 @@
 /*   By: mbutt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 16:38:02 by mbutt             #+#    #+#             */
-/*   Updated: 2020/01/25 22:00:44 by mbutt            ###   ########.fr       */
+/*   Updated: 2020/01/25 22:27:03 by mbutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include "NetworkModule.hpp"
 #include "OsInfoModule.hpp"
+#include "RamModule.hpp"
 #include <vector>
 //#include "NcursesDisplay.hpp"
 //#include "RamModule.hpp"
@@ -48,8 +49,9 @@ class ManagerModule
 		/* ------------------------------------ */
 	//	void render(void);
 	private:
-		NetworkModule _networkMode;
-		OsInfoModule _osInfoMode;
+		NetworkModule	_networkMode;
+		OsInfoModule	_osInfoMode;
+		RamModule		_ramMode;
 //		NcursesDisplay _ncursesDisplay;
 };
 
