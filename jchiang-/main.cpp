@@ -6,13 +6,22 @@
 /*   By: jchiang- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 20:35:26 by jchiang-          #+#    #+#             */
-/*   Updated: 2020/01/25 14:46:33 by jchiang-         ###   ########.fr       */
+/*   Updated: 2020/01/25 15:31:33 by jchiang-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DateTimeModule.hpp"
 #include <time.h>
 #include "CPUModule.hpp"
+#include "NcursesDisplay.hpp"
+
+/* --------------------------------------------------------------------------------------- */
+
+void testNcursesDisplay(void)
+{
+	NcursesDisplay n = NcursesDisplay();
+	n.render();
+}
 
 /* --------------------------------------------------------------------------------------- */
 // CPU testing
@@ -74,8 +83,8 @@ void testTimerModule(void)
 
 int main()
 {
-	//testTimerModule();
-	testCPUModule();
-    
+//	testTimerModule();
+//	testCPUModule();
+	testNcursesDisplay();  
 	return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: jchiang- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 14:57:17 by jchiang-          #+#    #+#             */
-/*   Updated: 2020/01/25 14:58:35 by jchiang-         ###   ########.fr       */
+/*   Updated: 2020/01/25 15:42:55 by jchiang-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 
 class IMonitorDisplay
 {
-	virtual ~IMonitorDisplay(void);
-	virtual render();
+	public:
+		virtual ~IMonitorDisplay(void) { };
+		virtual void render(void) = 0;
 };
 
 #endif

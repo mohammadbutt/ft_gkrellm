@@ -6,7 +6,7 @@
 /*   By: jchiang- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 14:54:01 by jchiang-          #+#    #+#             */
-/*   Updated: 2020/01/25 14:56:57 by jchiang-         ###   ########.fr       */
+/*   Updated: 2020/01/25 15:32:24 by jchiang-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 
 class IMonitorModule
 {
-	virtual ~IMonitorModule(void);
-	virtual ~update(void) = 0;
+	public:
+		virtual ~IMonitorModule(void);
+		virtual ~update(void) = 0;
 };
 
 #endif
