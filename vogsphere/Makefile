@@ -6,16 +6,17 @@
 #    By: jchiang- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/30 19:50:43 by jchiang-          #+#    #+#              #
-#    Updated: 2020/01/26 21:56:04 by mbutt            ###   ########.fr        #
+#    Updated: 2020/01/26 22:04:19 by mbutt            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NC:=\033[0m
 GREEN:=\033[1;32m
+ORANGE:=\033[1;33m
 
 NAME = ft_gkrellm
 
-CFLAG = -std=c++98 -Wall -Wextra -Werror -lncurses 
+CFLAG = -std=c++98 -Wall -Wextra -Werror -lncurses
 
 INC = -I includes -I ./SFML/include
 
@@ -26,14 +27,15 @@ FRAMEWORK = -lncurses -framework sfml-graphics -framework sfml-window -framework
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	clang++ $(CFLAG) $(INC) $(SRC) $(FRAMEWORK) -o $(NAME)
-	touch ft_gkrellmT
-	touch ft_gkrellmG
-	echo "DYLD_FRAMEWORK_PATH=`pwd`"/SFML/Frameworks" ./ft_gkrellm Text" >> ft_gkrellmT
-	echo "DYLD_FRAMEWORK_PATH=`pwd`"/SFML/Frameworks" ./ft_gkrellm Graph" >> ft_gkrellmG
-	chmod 777 ft_gkrellmT
-	chmod 777 ft_gkrellmG
-	@echo "${GREEN}Generated program ft_gkrellmT & ft_gkrellmG succesfully.${NC}"
+	@echo "${ORANGE}Creating the program. Please wait a few seconds.${NC}"
+	@clang++ $(CFLAG) $(INC) $(SRC) $(FRAMEWORK) -o $(NAME)
+	@touch ft_gkrellmT
+	@touch ft_gkrellmG
+	@echo "DYLD_FRAMEWORK_PATH=`pwd`"/SFML/Frameworks" ./ft_gkrellm Text" >> ft_gkrellmT
+	@echo "DYLD_FRAMEWORK_PATH=`pwd`"/SFML/Frameworks" ./ft_gkrellm Graph" >> ft_gkrellmG
+	@chmod 777 ft_gkrellmT
+	@chmod 777 ft_gkrellmG
+	@echo "${GREEN}Generated programs ft_gkrellmT & ft_gkrellmG succesfully.${NC}"
 
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.cpp
