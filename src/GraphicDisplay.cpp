@@ -6,7 +6,7 @@
 /*   By: jchiang- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/26 15:37:48 by jchiang-          #+#    #+#             */
-/*   Updated: 2020/01/26 16:55:04 by jchiang-         ###   ########.fr       */
+/*   Updated: 2020/01/26 18:35:48 by mbutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 GraphicDisplay::GraphicDisplay(void) {
 
-    _font.loadFromFile("../fonts/arial.ttf");
+    _font.loadFromFile("fonts/arial.ttf");
 
 }
 
