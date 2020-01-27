@@ -6,7 +6,7 @@
 /*   By: mbutt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 16:05:42 by mbutt             #+#    #+#             */
-/*   Updated: 2020/01/26 10:37:55 by jchiang-         ###   ########.fr       */
+/*   Updated: 2020/01/26 16:51:10 by mbutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,12 @@
 
 OsInfoModule::OsInfoModule(void)
 {
-	// default constructor;
-	std::cout << "Calling constructor" << std::endl;
 	uname(&_info);
-	//	getSystemInfo();
 }
 
 
 OsInfoModule::~OsInfoModule(void)
 {
-	//defualt destructor;
-	std::cout << "Calling destructor" << std::endl;
 }
 
 std::string OsInfoModule::getUserName(void)

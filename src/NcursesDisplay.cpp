@@ -6,7 +6,7 @@
 /*   By: jchiang- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 15:17:19 by jchiang-          #+#    #+#             */
-/*   Updated: 2020/01/26 13:44:21 by mbutt            ###   ########.fr       */
+/*   Updated: 2020/01/26 16:45:52 by mbutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ static bool waitForOneSec(std::chrono::high_resolution_clock::time_point t1) {
 }
 
 void NcursesDisplay::render(ManagerModule * mn) { 
-	// do something
 	std::chrono::high_resolution_clock::time_point t1;
 	while(true)
 	{
@@ -59,7 +58,7 @@ void NcursesDisplay::render(ManagerModule * mn) {
 		cpuInfoDisplay(mn->cpuInfo);
 		osInfoDisplay(mn->osInfo);
 		networkInfoDisplay(mn->nwInfo);
-		ramInfoDisplay(mn->rmInfo); // Added by mbutt
+		ramInfoDisplay(mn->rmInfo);
 		refresh();
 		while (!waitForOneSec(t1));
 	}

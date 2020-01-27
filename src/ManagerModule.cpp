@@ -6,7 +6,7 @@
 /*   By: mbutt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 16:47:39 by mbutt             #+#    #+#             */
-/*   Updated: 2020/01/26 12:38:51 by mbutt            ###   ########.fr       */
+/*   Updated: 2020/01/26 16:43:15 by mbutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,19 @@
 
 ManagerModule::ManagerModule(void)
 {
-	std::cout << "ManagerModule constructor" << std::endl;
 	setUpdateTopInfo();
-
 	_networkMode = NetworkModule();
 	_cpuModule = CPUModule();
 	_osModule = OsInfoModule();
 	_tmModule = DateTimeModule();
-	_ramModule = RamModule();		// Added by mbutt
+	_ramModule = RamModule();
 	return;
 }
 
 ManagerModule::~ManagerModule(void)
 {
-	std::cout << "ManagerModule desctructor" << std::endl;
 	return;
 }
-
 
 /* ---------------------------------------------------------------------------- */
 /* ----------------------     Module Section   -------------------------------- */
@@ -39,13 +35,11 @@ ManagerModule::~ManagerModule(void)
 
 void 		ManagerModule::update(void)
 {
-//	std::cout << "Manager Update" << std::endl;
 	setUpdateTopInfo();
-//	_networkMode.getNetworkPacketIn(topInfo[8]);
 	_cpuModule.update();
 	_tmModule.update();
 	_networkMode.setInfo(_topInfo);
-	_ramModule.setInfo(_topInfo);					// Added by mbutt
+	_ramModule.setInfo(_topInfo);
 }
 
 void ManagerModule::setUpdateTopInfo(void)
@@ -53,14 +47,7 @@ void ManagerModule::setUpdateTopInfo(void)
 	int i = 0;
 	system("top -l1 | head -10 > /tmp/topGrepFile.txt");	
 	std::ifstream file("/tmp/topGrepFile.txt");
-	/*
-	if(file.is_open() == false)
-		while(i < 10)
-			topInfo[i++] = "0";
-	else
-		while(i < 10)
-			std::getline(file, topInfo[i++]);
-	*/
+
 	std::string tmp;
 	_topInfo.clear();
 	if(file.is_open() == false)
@@ -74,36 +61,7 @@ void ManagerModule::setUpdateTopInfo(void)
 		}
 		file.close();
 	}
-//	return;
 }
-
-/*
-std::string  ManagerModule::getterForNetworkModuleIn(void)
-{
-//	std::cout << "Printing top info:" << std::endl << std::endl;
-//	std::cout << topInfo[8] << std::endl;
-	return(_networkMode.getNetworkPacketIn(topInfo[8]));
-//	std::cout << std::endl;
-}
-*/
-/*
-std::string  ManagerModule::getterForNetworkModuleOut(void)
-{
-//	std::cout << "Printing top info:" << std::endl << std::endl;
-//	std::cout << topInfo[8] << std::endl;
-	return(_networkMode.getNetworkPacketOut(topInfo[8]));
-//	std::cout << std::endl;
-}
-*/
-
-/*
-std::string ManagerModule::getTopInfo(int index)
-{
-//	_setTopInfo();
-	
-	return(topInfo[index]);
-}
-*/
 
 /* ---------------------------------------------------------------------------- */
 /* ---------------------     Display Section    ------------------------------- */
@@ -115,5 +73,5 @@ void ManagerModule::allModuleInfo(void)
 	osInfo = _osModule.getInfo();
 	tmInfo = _tmModule.getInfo();
 	nwInfo = _networkMode.getInfo();
-	rmInfo = _ramModule.getInfo();				// Added by mbutt
+	rmInfo = _ramModule.getInfo();
 }	

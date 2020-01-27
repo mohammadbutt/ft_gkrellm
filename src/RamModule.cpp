@@ -6,7 +6,7 @@
 /*   By: mbutt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 15:57:35 by mbutt             #+#    #+#             */
-/*   Updated: 2020/01/26 16:17:20 by mbutt            ###   ########.fr       */
+/*   Updated: 2020/01/26 16:53:25 by mbutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,11 @@
 
 RamModule::RamModule(void)
 {
-	std::cout << "RamModule constructor" << std::endl;
 	return;
 }
 
 RamModule::~RamModule(void)
 {
-	std::cout << "RamModule destructor" << std::endl;
 	return;
 }
 
@@ -82,8 +80,6 @@ std::string RamModule::getPhysicalMemoryUsed(std::string topInfo)
 		i++;
 	}
 	return(token);
-//	std::cout << "token: " << token << std::endl;
-//	return(topInfo.substr(9, 5));
 }
 
 std::string RamModule::getPhysicalMemoryUnUsed(std::string topInfo)
@@ -93,6 +89,7 @@ std::string RamModule::getPhysicalMemoryUnUsed(std::string topInfo)
 	std::string token;
 	int i = 0;
 	size_t position = 0;
+
 	while(i < 6)
 	{
 		position = topInfo.find(delimiter);
@@ -101,8 +98,6 @@ std::string RamModule::getPhysicalMemoryUnUsed(std::string topInfo)
 		i++;
 	}
 	return(token);
-//	std::cout << "token: " << token << std::endl;
-//	return(topInfo.substr(35, 5));
 }
 
 
@@ -117,26 +112,9 @@ std::vector<std::string> RamModule::getInfo(void)
 	ramVector.push_back("Total RAM in Gigabytes: " + getPhysicalMemoryGbytes());
 	ramVector.push_back("Total RAM in Megabytes: " + getPhysicalMemoryMbytes());
 	ramVector.push_back("Total RAM in     Bytes: " + getPhysicalMemoryBytes());
+	return(ramVector);
+}
 
-//	const char *str;
-//	str = ramVector[0].c_str();
-//	std::cout << "Printing vector through string" << str << std::endl;
-//	std::cout << ramVector[0] 
-//	std::cout << ramVector[0] << std::endl;
-	return(ramVector);
-}
-/*
-std::vector<std::string> RamModule::getInfo(std::string topInfo[])
-{
-	std::vector<std::string> ramVector;
-	ramVector.push_back(getPhysicalMemoryUsed(topInfo[6]));
-	ramVector.push_back(getPhysicalMemoryUnUsed(topInfo[6]));
-	ramVector.push_back(getPhysicalMemoryGbytes());
-	ramVector.push_back(getPhysicalMemoryMbytes());
-	ramVector.push_back(getPhysicalMemoryBytes());
-	return(ramVector);
-}
-*/
 void RamModule::setInfo(std::vector<std::string> Info)
 {
 	_topInfo = Info;
