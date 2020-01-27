@@ -33,6 +33,7 @@
 
 # ._
 .DS*
+*.swp
 ._*
 .idea
 CMakeLists.txt
