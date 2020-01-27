@@ -1,40 +1,56 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: jchiang- <marvin@42.fr>                    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2019/10/30 19:50:43 by jchiang-          #+#    #+#              #
-#    Updated: 2020/01/26 13:49:33 by jchiang-         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
 
 NAME = ft_gkrellm
 
-CFLAG = -std=c++98 -Wall -Wextra -Werror -lncurses 
+SRCSFILES = *.cpp
 
-INC = -I includes -I ./SFML/include
+SRCPATH = srcs
+OBJPATH = obj
+CC = clang++
+INCLUDES = -I $(SRCPATH) -I $(shell pwd)/SFML/include
+# LIBS =	-L SFML/lib -lsfml-graphics -lsfml-window -lsfml-system\
+# 		SFML/Frameworks/sfml-graphics.framework/sfml-graphics\
+# 		SFML/Frameworks/sfml-window.framework/sfml-window\
+# 		SFML/Frameworks/sfml-system.framework/sfml-system
+# LIBS = -L SFML/lib -lsfml-graphics -lsfml-window -lsfml-system
 
-SRC =  *.cpp
+LDENV = DYLD_FRAMEWORK_PATH="$(shell pwd)/SFML/Frameworks"
+# export DYLD_FRAMEWORK_PATH=`pwd`"/SFML/Frameworks"
 
-FRAMEWORK = -lncurses -framework sfml-graphics -framework sfml-window -framework sfml-system -F SFML/Frameworks
+LIBS =	-framework sfml-graphics -framework sfml-window -framework sfml-system\
+		-F SFML/Frameworks -lncurses
+CFLAGS = -Werror -Wall -Wextra -O2 -g
+RM = rm -rf
+
+SRC = $(addprefix $(SRCPATH)/,$(SRCSFILES))
+OBJECTS = $(SRC:$(SRCPATH)/%.cpp=$(OBJPATH)/%.o)
+
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	clang++ $(CFLAG) $(INC) $(SRC) $(FRAMEWORK) -o $(NAME)
+$(NAME): $(OBJECTS)
+	@echo "Compiling all"
+	$(CC) -o $@ $(CFLAGS) $(OBJECTS) $(LIBS)
 
-$(OBJ_DIR)%.o: $(SRC_DIR)%.cpp
-	mkdir -p obj
-	clang++ -c $(CFLAG) $(INC) $< -o $@
+$(OBJECTS): $(OBJPATH)/%.o : $(SRCPATH)/%.cpp
+	@mkdir -p $(dir $@)
+	$(CC) -o $@ $(CFLAGS) $(INCLUDES) -c $<
+
+rmsfml:
+	rm -rf SFML
+sfml: rmsfml
+	curl -O "http://mirror0.sfml-dev.org/files/SFML-2.2-osx-clang-universal.tar.gz" 
+	mkdir SFML
+	tar -xzf SFML-2.2-osx-clang-universal.tar.gz -C SFML --strip-components=1
+	mv SFML/extlibs/freetype.framework SFML/Frameworks/
+	rm -rf "SFML-2.2-osx-clang-universal.tar.gz"
+
+ldenv:
+	@echo export $(LDENV)
 
 clean:
-	/bin/rm -rf $(OBJ_DIR)
+	$(RM) $(OBJPATH)
 
 fclean: clean
-	/bin/rm -rf $(NAME)
+	$(RM) $(NAME)
 
 re: fclean all
-
-.PHONY: all, clean, fclean, re

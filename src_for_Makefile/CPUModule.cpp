@@ -6,7 +6,7 @@
 /*   By: jchiang- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 09:21:11 by jchiang-          #+#    #+#             */
-/*   Updated: 2020/01/26 17:29:24 by mbutt            ###   ########.fr       */
+/*   Updated: 2020/01/26 21:02:47 by mbutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,5 @@ std::vector<std::string> CPUModule::getInfo(void) {
 	cpuInfo.push_back("Thread Count: " + convertIntToChar(_cpuThreadCount));
 	cpuInfo.push_back("CPU Usage: " + convertIntToChar(_cpuUsageFloat) + "%");
 	cpuInfo.push_back(_cpuBrandString);
-//	cpuInfo.push_back(_cpuExFeatures);
-	//cpuInfo.push_back(_cpuUsage);
 	return cpuInfo;
 }
