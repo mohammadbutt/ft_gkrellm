@@ -6,7 +6,7 @@
 /*   By: jchiang- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/26 15:37:48 by jchiang-          #+#    #+#             */
-/*   Updated: 2020/01/26 18:35:48 by mbutt            ###   ########.fr       */
+/*   Updated: 2020/01/26 21:04:29 by mbutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,15 @@ void GraphicDisplay::render(ManagerModule * mn) {
     sf::RenderWindow window(sf::VideoMode(1000, 800), "SFML window");
     while (window.isOpen())
     {
-        // Process events
         sf::Event event;
 		int i = 0;
         while (window.pollEvent(event))
         {
-            // Close window: exit
             if (event.type == sf::Event::Closed)
                 window.close();
         }
 		mn->update();
 		mn->allModuleInfo();
-        // Clear screen
         window.clear();
 		for (std::vector<std::string>::iterator it = mn->tmInfo.begin(); it != mn->tmInfo.end(); ++it) {
     		sf::Text text(*it + "\n", _font, 25);
@@ -74,10 +71,6 @@ void GraphicDisplay::render(ManagerModule * mn) {
 			i += 30;
       	 	window.draw(text);
 		}
-        // Draw the sprite
-//        window.draw(sprite);
-        // Draw the string
-        // Update the window
         window.display();
     }
 }
