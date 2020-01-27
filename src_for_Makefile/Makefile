@@ -6,9 +6,12 @@
 #    By: jchiang- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/30 19:50:43 by jchiang-          #+#    #+#              #
-#    Updated: 2020/01/26 21:37:09 by mbutt            ###   ########.fr        #
+#    Updated: 2020/01/26 21:56:04 by mbutt            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+NC:=\033[0m
+GREEN:=\033[1;32m
 
 NAME = ft_gkrellm
 
@@ -30,6 +33,8 @@ $(NAME): $(OBJ)
 	echo "DYLD_FRAMEWORK_PATH=`pwd`"/SFML/Frameworks" ./ft_gkrellm Graph" >> ft_gkrellmG
 	chmod 777 ft_gkrellmT
 	chmod 777 ft_gkrellmG
+	@echo "${GREEN}Generated program ft_gkrellmT & ft_gkrellmG succesfully.${NC}"
+
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.cpp
 	mkdir -p obj
