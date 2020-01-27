@@ -6,7 +6,7 @@
 /*   By: jchiang- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 15:17:19 by jchiang-          #+#    #+#             */
-/*   Updated: 2020/01/26 18:22:40 by jchiang-         ###   ########.fr       */
+/*   Updated: 2020/01/26 18:32:20 by mbutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,13 +70,15 @@ void NcursesDisplay::render(ManagerModule * mn) {
 		while (!waitForOneSec(t1));
 	}
 }
-
 void NcursesDisplay::timeInfoDisplay(std::vector<std::string> & timeInfo) {
 	int i = 0;
 	for (std::vector<std::string>::iterator it = timeInfo.begin(); it != timeInfo.end(); ++it) {
 		if (i == 2)
-			mvprintw(TMPOSITION_Y + i , TMPOSITION_X,"%s", CLERA_LINE);	
-		mvprintw(TMPOSITION_Y + i, TMPOSITION_X,"%s", (*it).c_str());
+			mvprintw(TMPOSITION_Y + i , TMPOSITION_X,"%s", CLERA_LINE);
+		if(i == 0)
+			mvprintw(TMPOSITION_Y + i , _ptMax.x / 3,"%s", (*it).c_str());
+		else
+			mvprintw(TMPOSITION_Y + i, TMPOSITION_X,"%s", (*it).c_str());
 		i++;
 	}
 	mvprintw(TMPOSITION_Y + i , TMPOSITION_X,"%s", SEPERATE_LINE);	
@@ -87,8 +89,11 @@ void NcursesDisplay::cpuInfoDisplay(std::vector<std::string> & cpuInfo) {
 
 	for (std::vector<std::string>::iterator it = cpuInfo.begin(); it != cpuInfo.end(); ++it) {
 		if (i == 4)
-			mvprintw(CPUPOSITION_Y + i , CPUPOSITION_X,"%s", CLERA_LINE);	
-		mvprintw(CPUPOSITION_Y + i , CPUPOSITION_X,"%s", (*it).c_str());	
+			mvprintw(CPUPOSITION_Y + i , CPUPOSITION_X,"%s", CLERA_LINE);
+		if(i == 0)
+			mvprintw(CPUPOSITION_Y + i , _ptMax.x / 3,"%s", (*it).c_str());
+		else
+			mvprintw(CPUPOSITION_Y + i , CPUPOSITION_X,"%s", (*it).c_str());	
 		i++;
 	}
 	mvprintw(CPUPOSITION_Y + i , CPUPOSITION_X,"%s", SEPERATE_LINE);	
@@ -98,7 +103,10 @@ void NcursesDisplay::osInfoDisplay(std::vector<std::string> & osInfo) {
 	int i = 0;
 
 	for (std::vector<std::string>::iterator it = osInfo.begin(); it != osInfo.end(); ++it) {
-		mvprintw(OSPOSITION_Y + i , OSPOSITION_X,"%s", (*it).c_str());	
+		if(i == 0)
+			mvprintw(OSPOSITION_Y + i , _ptMax.x / 3,"%s", (*it).c_str());	
+		else
+			mvprintw(OSPOSITION_Y + i , OSPOSITION_X,"%s", (*it).c_str());	
 		i++;
 	}
 	mvprintw(OSPOSITION_Y + i , OSPOSITION_X,"%s", SEPERATE_LINE);	
@@ -107,8 +115,11 @@ void NcursesDisplay::osInfoDisplay(std::vector<std::string> & osInfo) {
 void NcursesDisplay::networkInfoDisplay(std::vector<std::string> &nwInfo) {
 	int i = 0;
 	for (std::vector<std::string>::iterator it = nwInfo.begin(); it != nwInfo.end(); ++it) {
-		mvprintw(NWPOSITION_Y + i , NWPOSITION_X,"%s", CLERA_LINE);	
-		mvprintw(NWPOSITION_Y + i, NWPOSITION_X,"%s", (*it).c_str());
+		mvprintw(NWPOSITION_Y + i , NWPOSITION_X,"%s", CLERA_LINE);
+		if(i == 0)
+			mvprintw(NWPOSITION_Y + i, _ptMax.x / 3,"%s", (*it).c_str());
+		else
+			mvprintw(NWPOSITION_Y + i, NWPOSITION_X,"%s", (*it).c_str());
 		i++;
 	}
 	mvprintw(NWPOSITION_Y + i , NWPOSITION_X,"%s", SEPERATE_LINE);	
@@ -120,7 +131,10 @@ void NcursesDisplay::ramInfoDisplay(std::vector<std::string> &ramInfo)
 	while(i < static_cast<int>(ramInfo.size()))
 	{
 		mvprintw(RMPOSITION_Y + i, RMPOSITION_X,"%s", CLERA_LINE);		
-		mvprintw(RMPOSITION_Y + i, RMPOSITION_X, "%s", ramInfo[i].c_str());
+		if(i == 0)
+			mvprintw(RMPOSITION_Y + i, _ptMax.x / 3, "%s", ramInfo[i].c_str());
+		else
+			mvprintw(RMPOSITION_Y + i, RMPOSITION_X, "%s", ramInfo[i].c_str());
 		i++;
 	}
 	mvprintw(RMPOSITION_Y + i, RMPOSITION_X, "%s", SEPERATE_LINE);
