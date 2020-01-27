@@ -6,7 +6,7 @@
 /*   By: jchiang- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 15:02:33 by jchiang-          #+#    #+#             */
-/*   Updated: 2020/01/26 17:07:12 by mbutt            ###   ########.fr       */
+/*   Updated: 2020/01/26 17:52:29 by jchiang-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ class NcursesDisplay : public IMonitorDisplay
 		void cpuInfoDisplay(std::vector<std::string> & cpuInfo);
 		void osInfoDisplay(std::vector<std::string> & osInfo);
 		void ramInfoDisplay(std::vector<std::string> &ramInfo);
+		void ponyInfoDisplay(std::vector<std::string> &ramInfo);
 };
 
 #endif

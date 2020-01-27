@@ -6,7 +6,7 @@
 /*   By: mbutt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 16:38:02 by mbutt             #+#    #+#             */
-/*   Updated: 2020/01/26 16:43:26 by mbutt            ###   ########.fr       */
+/*   Updated: 2020/01/26 17:51:15 by jchiang-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include "NetworkModule.hpp"
 #include "CPUModule.hpp"
 #include "RamModule.hpp"
+#include "PonyModule.hpp"
 
 #include <vector>
 #include <iostream>
@@ -45,6 +46,7 @@ class ManagerModule
 		std::vector<std::string> tmInfo;
 		std::vector<std::string> nwInfo;
 		std::vector<std::string> rmInfo;
+		std::vector<std::string> ponyInfo;
 		void allModuleInfo(void);
 	private:
 		std::vector<std::string>	_topInfo;
@@ -53,6 +55,7 @@ class ManagerModule
 		OsInfoModule				_osModule;
 		DateTimeModule				_tmModule;
 		RamModule					_ramModule;
+		PonyModule					_ponyModule;
 };
 
 # endif

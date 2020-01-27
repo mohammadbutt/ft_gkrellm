@@ -6,7 +6,7 @@
 /*   By: jchiang- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/26 07:51:16 by jchiang-          #+#    #+#             */
-/*   Updated: 2020/01/26 17:28:25 by mbutt            ###   ########.fr       */
+/*   Updated: 2020/01/26 18:16:40 by jchiang-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 #include <vector>
 #include <string>
 #include <iostream>
-
+#include <random>
 
 /* --------------------------------------------------------------------------- */
 /* -----------------------      Macro Define     ----------------------------- */
@@ -41,6 +41,9 @@
 # define NWPOSITION_X 2
 # define RMPOSITION_Y 27
 # define RMPOSITION_X 2
+# define PONYPOSITION_Y 39
+# define PONYPOSITION_X 2
+
 
 typedef struct s_point {
 	int x;

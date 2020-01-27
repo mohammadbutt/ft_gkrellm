@@ -6,7 +6,7 @@
 /*   By: jchiang- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 15:17:19 by jchiang-          #+#    #+#             */
-/*   Updated: 2020/01/26 17:13:58 by mbutt            ###   ########.fr       */
+/*   Updated: 2020/01/26 18:22:40 by jchiang-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 NcursesDisplay::NcursesDisplay(void) { 
 
 	initscr();
+	if(has_colors() == FALSE)
+	{	endwin();
+		printf("Your terminal does not support color\n");
+		exit(1);
+	}
+	start_color();
 	raw();
 	noecho();
 	cbreak();
@@ -59,6 +65,7 @@ void NcursesDisplay::render(ManagerModule * mn) {
 		osInfoDisplay(mn->osInfo);
 		networkInfoDisplay(mn->nwInfo);
 		ramInfoDisplay(mn->rmInfo);
+		ponyInfoDisplay(mn->ponyInfo);
 		refresh();
 		while (!waitForOneSec(t1));
 	}
@@ -117,4 +124,50 @@ void NcursesDisplay::ramInfoDisplay(std::vector<std::string> &ramInfo)
 		i++;
 	}
 	mvprintw(RMPOSITION_Y + i, RMPOSITION_X, "%s", SEPERATE_LINE);
+}
+
+static short cursColor(int fg)
+{
+    switch (7 & fg) {           /* RGB */
+    case 0:                     /* 000 */
+        return (COLOR_WHITE);
+    case 1:                     /* 001 */
+        return (COLOR_BLUE);
+    case 2:                     /* 010 */
+        return (COLOR_GREEN);
+    case 3:                     /* 011 */
+        return (COLOR_CYAN);
+    case 4:                     /* 100 */
+        return (COLOR_RED);
+    case 5:                     /* 101 */
+        return (COLOR_MAGENTA);
+    case 6:                     /* 110 */
+        return (COLOR_YELLOW);
+    case 7:                     /* 111 */
+        return (COLOR_WHITE);
+	}
+	return (COLOR_WHITE);
+}
+
+static int randomNumber(void) {
+	
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	std::uniform_int_distribution<> uid(0, 1000);
+	int color = uid(gen) % 7;
+	return color;
+}
+
+void NcursesDisplay::ponyInfoDisplay(std::vector<std::string> &ponyInfo)
+{
+	int i = 0;
+	init_pair(1, cursColor(randomNumber()), COLOR_BLACK);
+	attron(COLOR_PAIR(1));
+	for (std::vector<std::string>::iterator it = ponyInfo.begin(); it != ponyInfo.end(); ++it) {
+		mvprintw(PONYPOSITION_Y + i , PONYPOSITION_X,"%s", CLERA_LINE);	
+		mvprintw(PONYPOSITION_Y + i, PONYPOSITION_X,"%s", (*it).c_str());
+		i++;
+	}
+	mvprintw(PONYPOSITION_Y + i , PONYPOSITION_X,"%s", SEPERATE_LINE);
+	attroff(COLOR_PAIR(1));
 }

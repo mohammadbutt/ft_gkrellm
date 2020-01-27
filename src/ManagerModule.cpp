@@ -6,7 +6,7 @@
 /*   By: mbutt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 16:47:39 by mbutt             #+#    #+#             */
-/*   Updated: 2020/01/26 16:43:15 by mbutt            ###   ########.fr       */
+/*   Updated: 2020/01/26 17:56:22 by jchiang-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ ManagerModule::ManagerModule(void)
 	_osModule = OsInfoModule();
 	_tmModule = DateTimeModule();
 	_ramModule = RamModule();
+	_ponyModule = PonyModule();
 	return;
 }
 
@@ -74,4 +75,5 @@ void ManagerModule::allModuleInfo(void)
 	tmInfo = _tmModule.getInfo();
 	nwInfo = _networkMode.getInfo();
 	rmInfo = _ramModule.getInfo();
+	ponyInfo = _ponyModule.getInfo();
 }	
