@@ -11,8 +11,8 @@
 ## Objective
 [42 shcool](https://www.42.us.org/) C++ [rush challenge](resources/rush01.en.pdf): \
 Have tow days to recreate GKrellM, a system monitor with both text mode and graphic mode. \
-Text mode is done by ncurses library \
-Graphic mode: we use [SFML](https://www.sfml-dev.org/) as our graphic library
+Text mode: ncurses library \
+Graphic mode: [SFML](https://www.sfml-dev.org/) graphic library
 
 ## How to use
 
