@@ -6,7 +6,7 @@
 /*   By: jchiang- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 20:23:54 by jchiang-          #+#    #+#             */
-/*   Updated: 2020/01/26 11:04:44 by jchiang-         ###   ########.fr       */
+/*   Updated: 2020/01/26 17:20:59 by mbutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ std::vector<std::string> DateTimeModule::getInfo(void) {
 	timeInfo.push_back(getCurrentMin());
 	timeInfo.push_back(getCurrentSec());
 	*/
+	timeInfo.push_back("Activity Monitor:");
 	timeInfo.push_back("Date: " + getCurrentYear() + 
 			" " + getCurrentMonth() + " " + getCurrentDay());
 	timeInfo.push_back("Time: " + getCurrentHour() + ":" + 

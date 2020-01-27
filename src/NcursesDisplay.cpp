@@ -6,7 +6,7 @@
 /*   By: jchiang- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 15:17:19 by jchiang-          #+#    #+#             */
-/*   Updated: 2020/01/26 16:45:52 by mbutt            ###   ########.fr       */
+/*   Updated: 2020/01/26 17:13:58 by mbutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void NcursesDisplay::render(ManagerModule * mn) {
 void NcursesDisplay::timeInfoDisplay(std::vector<std::string> & timeInfo) {
 	int i = 0;
 	for (std::vector<std::string>::iterator it = timeInfo.begin(); it != timeInfo.end(); ++it) {
-		if (i == 1)
+		if (i == 2)
 			mvprintw(TMPOSITION_Y + i , TMPOSITION_X,"%s", CLERA_LINE);	
 		mvprintw(TMPOSITION_Y + i, TMPOSITION_X,"%s", (*it).c_str());
 		i++;
@@ -79,7 +79,7 @@ void NcursesDisplay::cpuInfoDisplay(std::vector<std::string> & cpuInfo) {
 	int i = 0;
 
 	for (std::vector<std::string>::iterator it = cpuInfo.begin(); it != cpuInfo.end(); ++it) {
-		if (i == 3)
+		if (i == 4)
 			mvprintw(CPUPOSITION_Y + i , CPUPOSITION_X,"%s", CLERA_LINE);	
 		mvprintw(CPUPOSITION_Y + i , CPUPOSITION_X,"%s", (*it).c_str());	
 		i++;

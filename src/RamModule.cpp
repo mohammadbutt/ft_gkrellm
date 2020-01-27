@@ -6,7 +6,7 @@
 /*   By: mbutt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 15:57:35 by mbutt             #+#    #+#             */
-/*   Updated: 2020/01/26 16:53:25 by mbutt            ###   ########.fr       */
+/*   Updated: 2020/01/26 17:22:32 by mbutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,7 @@ std::string RamModule::getPhysicalMemoryUnUsed(std::string topInfo)
 std::vector<std::string> RamModule::getInfo(void)
 {
 	std::vector<std::string> ramVector;
+	ramVector.push_back("RAM Info");
 	if(_topInfo.empty() == false)
 	{
 		ramVector.push_back("RAM Unused: " + getPhysicalMemoryUsed(_topInfo[6]));

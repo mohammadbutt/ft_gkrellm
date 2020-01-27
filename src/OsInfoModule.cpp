@@ -6,7 +6,7 @@
 /*   By: mbutt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 16:05:42 by mbutt             #+#    #+#             */
-/*   Updated: 2020/01/26 16:51:10 by mbutt            ###   ########.fr       */
+/*   Updated: 2020/01/26 17:28:55 by mbutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ void OsInfoModule::update(void)
 std::vector<std::string> OsInfoModule::getInfo(void)
 {
 	std::vector<std::string> vectorString;
+	vectorString.push_back("Os Info");
 	vectorString.push_back("User Name: " + getUserName());
 	vectorString.push_back("System Name: " + getSysName());
 	vectorString.push_back("Computer Name: " + getNodeName());
