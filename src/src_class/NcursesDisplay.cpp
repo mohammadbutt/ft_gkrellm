@@ -6,11 +6,11 @@
 /*   By: jchiang- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 15:17:19 by jchiang-          #+#    #+#             */
-/*   Updated: 2020/01/26 18:32:20 by mbutt            ###   ########.fr       */
+/*   Updated: 2020/01/26 21:46:22 by mbutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "NcursesDisplay.hpp"
+#include "../src_include/NcursesDisplay.hpp"
 
 NcursesDisplay::NcursesDisplay(void) { 
 
@@ -142,22 +142,22 @@ void NcursesDisplay::ramInfoDisplay(std::vector<std::string> &ramInfo)
 
 static short cursColor(int fg)
 {
-    switch (7 & fg) {           /* RGB */
-    case 0:                     /* 000 */
+    switch (7 & fg) {
+    case 0:
         return (COLOR_WHITE);
-    case 1:                     /* 001 */
+    case 1:
         return (COLOR_BLUE);
-    case 2:                     /* 010 */
+    case 2:
         return (COLOR_GREEN);
-    case 3:                     /* 011 */
+    case 3:
         return (COLOR_CYAN);
-    case 4:                     /* 100 */
+    case 4:
         return (COLOR_RED);
-    case 5:                     /* 101 */
+    case 5:
         return (COLOR_MAGENTA);
-    case 6:                     /* 110 */
+    case 6:
         return (COLOR_YELLOW);
-    case 7:                     /* 111 */
+    case 7:
         return (COLOR_WHITE);
 	}
 	return (COLOR_WHITE);

@@ -6,11 +6,11 @@
 /*   By: mbutt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 16:05:42 by mbutt             #+#    #+#             */
-/*   Updated: 2020/01/26 17:28:55 by mbutt            ###   ########.fr       */
+/*   Updated: 2020/01/26 21:25:53 by mbutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "OsInfoModule.hpp"
+#include "../src_include/OsInfoModule.hpp"
 
 OsInfoModule::OsInfoModule(void)
 {

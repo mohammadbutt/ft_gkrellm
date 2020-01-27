@@ -6,11 +6,11 @@
 /*   By: mbutt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 15:57:35 by mbutt             #+#    #+#             */
-/*   Updated: 2020/01/26 17:22:32 by mbutt            ###   ########.fr       */
+/*   Updated: 2020/01/26 21:26:34 by mbutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RamModule.hpp"
+#include "../src_include/RamModule.hpp"
 
 RamModule::RamModule(void)
 {

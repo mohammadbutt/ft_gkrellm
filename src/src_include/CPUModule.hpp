@@ -6,7 +6,7 @@
 /*   By: jchiang- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 09:09:18 by jchiang-          #+#    #+#             */
-/*   Updated: 2020/01/25 21:44:17 by jchiang-         ###   ########.fr       */
+/*   Updated: 2020/01/26 21:03:16 by mbutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,10 @@
 #include <mach/vm_map.h>
 
 /*
- * sysctl -a | grep machdep.cpu
- * Read the info as needed 
- */
+** sysctl -a | grep machdep.cpu
+** Read the info as needed 
+*/
+
 class CPUModule : public IMonitorModule
 {
 	private:

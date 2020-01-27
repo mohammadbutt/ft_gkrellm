@@ -6,15 +6,15 @@
 /*   By: jchiang- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/26 15:37:48 by jchiang-          #+#    #+#             */
-/*   Updated: 2020/01/26 18:35:48 by mbutt            ###   ########.fr       */
+/*   Updated: 2020/01/26 22:24:42 by sko              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "GraphicDisplay.hpp"
+#include "../src_include/GraphicDisplay.hpp"
 
 GraphicDisplay::GraphicDisplay(void) {
 
-    _font.loadFromFile("fonts/arial.ttf");
+	_font.loadFromFile("fonts/arial.ttf");
 
 }
 
@@ -28,7 +28,7 @@ GraphicDisplay::~GraphicDisplay(void) { }
 
 void GraphicDisplay::render(ManagerModule * mn) {
 
-    sf::RenderWindow window(sf::VideoMode(600, 1640), "SFML window");
+	sf::RenderWindow window(sf::VideoMode(600, 1640), "SFML window");
 	// Set Font
 	sf::Font	font1;
 	font1.loadFromFile("./fonts/lucon.ttf");
@@ -61,25 +61,25 @@ void GraphicDisplay::render(ManagerModule * mn) {
 	sf::Sprite	s3;
 	s3.setTexture(body2);
 
-    while (window.isOpen())
-    {
-        // Process events
-        sf::Event event;
+	while (window.isOpen())
+	{
+		// Process events
+		sf::Event event;
 		int i = 0;
-        while (window.pollEvent(event))
-        {
-            // Close window: exit
-            if (event.type == sf::Event::Closed)
-                window.close();
-        }
+		while (window.pollEvent(event))
+		{
+			// Close window: exit
+			if (event.type == sf::Event::Closed)
+				window.close();
+		}
 		mn->update();
 		mn->allModuleInfo();
-        // Clear screen
-        window.clear();
-        s0.setPosition(0, 0);
-        window.draw(s0);
+		// Clear screen
+		window.clear();
+		s0.setPosition(0, 0);
+		window.draw(s0);
 		s1.setPosition(0, 60);
-        window.draw(s1);
+		window.draw(s1);
 		for (std::vector<std::string>::iterator it = mn->tmInfo.begin(); it != mn->tmInfo.end(); ++it) {
 			sf::Text	title;
 			sf::Text	text;
@@ -219,10 +219,10 @@ void GraphicDisplay::render(ManagerModule * mn) {
 			window.draw(title);
 			window.draw(text);
 		}
-        // Draw the sprite
+		// Draw the sprite
 //        window.draw(sprite);
-        // Draw the string
-        // Update the window
-        window.display();
-    }
+		// Draw the string
+		// Update the window
+		window.display();
+	}
 }

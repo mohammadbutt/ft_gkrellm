@@ -6,11 +6,11 @@
 /*   By: jchiang- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 20:23:54 by jchiang-          #+#    #+#             */
-/*   Updated: 2020/01/26 17:20:59 by mbutt            ###   ########.fr       */
+/*   Updated: 2020/01/26 21:23:36 by mbutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "DateTimeModule.hpp"
+#include "../src_include/DateTimeModule.hpp"
 
 DateTimeModule::DateTimeModule(void) {
 	_now = time(0);
@@ -63,14 +63,6 @@ void DateTimeModule::update(void) {
 std::vector<std::string> DateTimeModule::getInfo(void) { 
 
 	std::vector<std::string> timeInfo;
-	/*
-	timeInfo.push_back(getCurrentYear());
-	timeInfo.push_back(getCurrentMonth());
-	timeInfo.push_back(getCurrentDay());
-	timeInfo.push_back(getCurrentHour());
-	timeInfo.push_back(getCurrentMin());
-	timeInfo.push_back(getCurrentSec());
-	*/
 	timeInfo.push_back("Activity Monitor:");
 	timeInfo.push_back("Date: " + getCurrentYear() + 
 			" " + getCurrentMonth() + " " + getCurrentDay());

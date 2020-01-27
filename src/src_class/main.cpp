@@ -5,29 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jchiang- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/25 19:37:34 by jchiang-          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2020/01/26 15:37:51 by mbutt            ###   ########.fr       */
-=======
-/*   Updated: 2020/01/26 15:49:50 by jchiang-         ###   ########.fr       */
->>>>>>> 0eecb168944fc3ee67cfa1c7d2aeea2d494e5dbb
+/*   Created: 2020/01/26 16:33:09 by jchiang-          #+#    #+#             */
+/*   Updated: 2020/01/26 21:27:39 by mbutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ManagerModule.hpp"
-#include "NcursesDisplay.hpp"
-#include "GraphicDisplay.hpp"
+#include "../src_include/ManagerModule.hpp"
+#include "../src_include/NcursesDisplay.hpp"
+#include "../src_include/GraphicDisplay.hpp"
 
 
 int main(int argc, char **argv)
 {
-<<<<<<< HEAD
-	ManagerModule mn = ManagerModule();
-	NcursesDisplay nc = NcursesDisplay();
-	nc.render(&mn);
-//	sfmlinit();
-	return 0;
-=======
 	if (argc == 2) {
 		std::string text = "Text";
 		std::string graph = "Graph";
@@ -43,5 +32,4 @@ int main(int argc, char **argv)
 	}
 	std::cout << "Usage: ./ft_gkrellm [Text / Graph]" << std::endl;
 	return -1;
->>>>>>> 0eecb168944fc3ee67cfa1c7d2aeea2d494e5dbb
 }

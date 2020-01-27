@@ -6,11 +6,11 @@
 /*   By: mbutt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 15:18:49 by mbutt             #+#    #+#             */
-/*   Updated: 2020/01/26 17:22:04 by mbutt            ###   ########.fr       */
+/*   Updated: 2020/01/26 21:25:42 by mbutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "NetworkModule.hpp"
+#include "../src_include/NetworkModule.hpp"
 
 NetworkModule::NetworkModule(void)
 {
