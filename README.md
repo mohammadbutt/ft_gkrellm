@@ -1,5 +1,5 @@
 # ft_gkrellm
-===
+
 ![](resources/ft_gkrellm.gif)
 
 * [Objective](#objective)
@@ -38,6 +38,6 @@ make
 * zaz’s favorite animal
 
 ## Group Project Members
-Mohammad Butt: https://github.com/mohammadbutt
-Seunghyun Ko: https://github.com/kosehy
-Jeffrey Chaing: https://github.com/JCTGY
+Mohammad Butt: https://github.com/mohammadbutt \
+Seunghyun Ko: https://github.com/kosehy \
+Jeffrey Chaing: https://github.com/JCTGY \
