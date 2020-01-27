@@ -6,7 +6,7 @@
 #    By: jchiang- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/30 19:50:43 by jchiang-          #+#    #+#              #
-#    Updated: 2020/01/26 21:13:59 by mbutt            ###   ########.fr        #
+#    Updated: 2020/01/26 21:22:29 by mbutt            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CFLAG = -std=c++98 -Wall -Wextra -Werror -lncurses
 
 INC = -I includes -I ./SFML/include
 
-SRC =  src/*.cpp
+SRC =  src/src_class/*.cpp
 
 FRAMEWORK = -lncurses -framework sfml-graphics -framework sfml-window -framework sfml-system -F SFML/Frameworks
 
