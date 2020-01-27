@@ -6,7 +6,7 @@
 /*   By: jchiang- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 19:37:34 by jchiang-          #+#    #+#             */
-/*   Updated: 2020/01/26 13:47:26 by jchiang-         ###   ########.fr       */
+/*   Updated: 2020/01/26 15:37:51 by mbutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ int sfmlinit() {
 
 int main(void)
 {
-//	ManagerModule mn = ManagerModule();
-//	NcursesDisplay nc = NcursesDisplay();
-//	nc.render(&mn);
-	sfmlinit();
+	ManagerModule mn = ManagerModule();
+	NcursesDisplay nc = NcursesDisplay();
+	nc.render(&mn);
+//	sfmlinit();
 	return 0;
 }

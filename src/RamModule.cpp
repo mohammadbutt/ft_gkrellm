@@ -6,7 +6,7 @@
 /*   By: mbutt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 15:57:35 by mbutt             #+#    #+#             */
-/*   Updated: 2020/01/26 13:41:58 by mbutt            ###   ########.fr       */
+/*   Updated: 2020/01/26 16:17:20 by mbutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,12 +69,40 @@ std::string RamModule::getPhysicalMemoryGbytes(void)
 
 std::string RamModule::getPhysicalMemoryUsed(std::string topInfo)
 {
-	return(topInfo.substr(9, 5));
+	std::string delimiter = " ";
+	std::string token;
+	int i = 0;
+	size_t position = 0;
+
+	while(i < 2)
+	{
+		position = topInfo.find(delimiter);
+		token = topInfo.substr(0, position);
+		topInfo.erase(0, position + delimiter.length());
+		i++;
+	}
+	return(token);
+//	std::cout << "token: " << token << std::endl;
+//	return(topInfo.substr(9, 5));
 }
 
 std::string RamModule::getPhysicalMemoryUnUsed(std::string topInfo)
 {
-	return(topInfo.substr(35, 5));
+
+	std::string delimiter = " ";
+	std::string token;
+	int i = 0;
+	size_t position = 0;
+	while(i < 6)
+	{
+		position = topInfo.find(delimiter);
+		token = topInfo.substr(0, position);
+		topInfo.erase(0, position + delimiter.length());
+		i++;
+	}
+	return(token);
+//	std::cout << "token: " << token << std::endl;
+//	return(topInfo.substr(35, 5));
 }
 
 
