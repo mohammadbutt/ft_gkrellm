@@ -34,3 +34,6 @@
 # ._
 .DS*
 ._*
+.idea
+CMakeLists.txt
+cmake-build-debug
