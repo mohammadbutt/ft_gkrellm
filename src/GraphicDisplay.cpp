@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   GraphicDisplay.cpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jchiang- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/25 19:37:34 by jchiang-          #+#    #+#             */
-/*   Updated: 2020/01/26 15:37:51 by mbutt            ###   ########.fr       */
+/*   Created: 2020/01/26 15:37:48 by jchiang-          #+#    #+#             */
+/*   Updated: 2020/01/26 15:52:59 by jchiang-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ManagerModule.hpp"
-#include "NcursesDisplay.hpp"
+#include "GraphicDisplay.hpp"
 
-#include <SFML/Graphics.hpp>
+GraphicDisplay::GraphicDisplay(void) {
+
+}
+
+GraphicDisplay::GraphicDisplay(const GraphicDisplay & copy) { *this = copy; }
+GraphicDisplay &GraphicDisplay::operator = (const GraphicDisplay & inputClass) {
+
+	(void)inputClass;
+	return *this;
+}
+GraphicDisplay::~GraphicDisplay(void) { }
 
 
-int sfmlinit() {
-	// Create the main window
+
+int TestWindow(void) {
+		// Create the main window
     sf::RenderWindow window(sf::VideoMode(800, 600), "SFML window");
     // Load a sprite to display
   //  sf::Texture texture;
@@ -53,11 +63,10 @@ int sfmlinit() {
     return EXIT_SUCCESS;
 }
 
-int main(void)
-{
-	ManagerModule mn = ManagerModule();
-	NcursesDisplay nc = NcursesDisplay();
-	nc.render(&mn);
-//	sfmlinit();
-	return 0;
+void GraphicDisplay::render(ManagerModule * mn) {
+
+	(void)mn;
+	TestWindow();
 }
+
+
