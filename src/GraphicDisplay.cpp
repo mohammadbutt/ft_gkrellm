@@ -28,26 +28,38 @@ GraphicDisplay::~GraphicDisplay(void) { }
 
 void GraphicDisplay::render(ManagerModule * mn) {
 
-    sf::RenderWindow window(sf::VideoMode(600, 1800), "SFML window");
+    sf::RenderWindow window(sf::VideoMode(600, 1640), "SFML window");
 	// Set Font
 	sf::Font	font1;
 	font1.loadFromFile("./fonts/lucon.ttf");
 
-	sf::Texture	tt1;
-	tt1.loadFromFile("./img/body.png");
-	tt1.setSmooth(true);
+	sf::Texture	tt;
+	tt.loadFromFile("./img/title.png");
+	tt.setSmooth(true);
+	// set title sprite
+	sf::Sprite	s0;
+	s0.setTexture(tt);
+
+	sf::Texture	body;
+	body.loadFromFile("./img/body.png");
+	body.setSmooth(true);
 	// set body sprite
 	sf::Sprite	s1;
-	s1.setTexture(tt1);
+	s1.setTexture(body);
 
-	sf::Texture	tt2;
-	tt2.loadFromFile("./img/title.png");
-	tt2.setSmooth(true);
-	// set title sprite
+	sf::Texture	body1;
+	body1.loadFromFile("./img/body1.png");
+	body1.setSmooth(true);
+	// set body1 sprite
 	sf::Sprite	s2;
-	s2.setTexture(tt2);
+	s2.setTexture(body1);
 
-	sf::FloatRect	fr;
+	sf::Texture	body2;
+	body2.loadFromFile("./img/body2.png");
+	body2.setSmooth(true);
+	// set body2 sprite
+	sf::Sprite	s3;
+	s3.setTexture(body2);
 
     while (window.isOpen())
     {
@@ -64,8 +76,8 @@ void GraphicDisplay::render(ManagerModule * mn) {
 		mn->allModuleInfo();
         // Clear screen
         window.clear();
-        s2.setPosition(0, 0);
-        window.draw(s2);
+        s0.setPosition(0, 0);
+        window.draw(s0);
 		s1.setPosition(0, 60);
         window.draw(s1);
 		for (std::vector<std::string>::iterator it = mn->tmInfo.begin(); it != mn->tmInfo.end(); ++it) {
@@ -74,7 +86,7 @@ void GraphicDisplay::render(ManagerModule * mn) {
 			title.setString("Activity Monitor");
 			title.setFont(_font);
 			title.setCharacterSize(40);
-			title.setFillColor(sf::Color::White);
+			title.setFillColor(sf::Color::Black);
 			title.setPosition(180, 5);
 			if (it == mn->tmInfo.begin())
 				continue;
@@ -82,101 +94,127 @@ void GraphicDisplay::render(ManagerModule * mn) {
 				text.setString(*it + "\n");
 				text.setFont(_font);
 				text.setCharacterSize(25);
-				text.setPosition(40, 110 + i);
+				text.setFillColor(sf::Color::Black);
+				text.setPosition(40, 100 + i);
 				i += 30;
 			}
 			window.draw(title);
 			window.draw(text);
 		}
+		s0.setPosition(0, 200);
+		window.draw(s0);
+		s2.setPosition(0, 260);
+		window.draw(s2);
 		for (std::vector<std::string>::iterator it = mn->cpuInfo.begin(); it != mn->cpuInfo.end(); ++it) {
 			sf::Text	title;
 			sf::Text	text;
 			title.setString("CPU Info");
 			title.setFont(_font);
 			title.setCharacterSize(40);
-			title.setFillColor(sf::Color::White);
-			title.setPosition(210, 130);
+			title.setFillColor(sf::Color::Black);
+			title.setPosition(210, 208);
 			if (it == mn->cpuInfo.begin())
 				continue;
 			else {
 				text.setString(*it + "\n");
 				text.setFont(_font);
+				text.setFillColor(sf::Color::Black);
 				text.setCharacterSize(25);
-				text.setPosition(40, 180 + i);
+				text.setPosition(40, 232 + i);
 				i += 30;
 			}
 			window.draw(title);
 			window.draw(text);
 		}
+		s0.setPosition(0, 480);
+		window.draw(s0);
+		s3.setPosition(0, 540);
+		window.draw(s3);
 		for (std::vector<std::string>::iterator it = mn->osInfo.begin(); it != mn->osInfo.end(); ++it) {
 			sf::Text	title;
 			sf::Text	text;
 			title.setString("OS Info");
 			title.setFont(_font);
 			title.setCharacterSize(40);
-			title.setFillColor(sf::Color::White);
-			title.setPosition(215, 370);
+			title.setFillColor(sf::Color::Black);
+			title.setPosition(215, 485);
 			if (it == mn->osInfo.begin())
 				continue;
 			else {
 				text.setString(*it + "\n");
 				text.setFont(_font);
+				text.setFillColor(sf::Color::Black);
 				text.setCharacterSize(25);
-				text.setPosition(40, 275 + i);
+				text.setPosition(40, 365 + i);
 				i += 30;
 			}
 			window.draw(title);
 			window.draw(text);
 		}
+		s0.setPosition(0, 820);
+		window.draw(s0);
+		s1.setPosition(0, 880);
+		window.draw(s1);
 		for (std::vector<std::string>::iterator it = mn->nwInfo.begin(); it != mn->nwInfo.end(); ++it) {
 			sf::Text	title;
 			sf::Text	text;
 			title.setString("Network Info");
 			title.setFont(_font);
 			title.setCharacterSize(40);
-			title.setFillColor(sf::Color::White);
-			title.setPosition(195, 670);
+			title.setFillColor(sf::Color::Black);
+			title.setPosition(195, 828);
 			if (it == mn->nwInfo.begin())
 				continue;
 			else {
 				text.setString(*it + "\n");
 				text.setFont(_font);
+				text.setFillColor(sf::Color::Black);
 				text.setCharacterSize(25);
-				text.setPosition(40, 370 + i);
+				text.setPosition(40, 500 + i);
 				i += 30;
 			}
 			window.draw(title);
 			window.draw(text);
 		}
+		s0.setPosition(0, 1020);
+		window.draw(s0);
+		s2.setPosition(0, 1080);
+		window.draw(s2);
 		for (std::vector<std::string>::iterator it = mn->rmInfo.begin(); it != mn->rmInfo.end(); ++it) {
 			sf::Text	title;
 			sf::Text	text;
 			title.setString("RAM Info");
 			title.setFont(_font);
 			title.setCharacterSize(40);
-			title.setFillColor(sf::Color::White);
-			title.setPosition(200, 830);
+			title.setFillColor(sf::Color::Black);
+			title.setPosition(200, 1028);
 			if (it == mn->rmInfo.begin())
 				continue;
 			else {
 				text.setString(*it + "\n");
 				text.setFont(_font);
+				text.setFillColor(sf::Color::Black);
 				text.setCharacterSize(25);
-				text.setPosition(40, 480 + i);
+				text.setPosition(40, 635 + i);
 				i += 30;
 			}
 			window.draw(title);
 			window.draw(text);
 		}
+		s0.setPosition(0, 1300);
+		window.draw(s0);
+		s3.setPosition(0, 1360);
+		window.draw(s3);
 		for (std::vector<std::string>::iterator it = mn->ponyInfo.begin(); it != mn->ponyInfo.end(); ++it) {
 			sf::Text	title;
 			title.setString("Pony Info");
 			title.setFont(_font);
 			title.setCharacterSize(40);
-			title.setFillColor(sf::Color::White);
-			title.setPosition(200, 1100);
+			title.setFillColor(sf::Color::Black);
+			title.setPosition(200, 1300);
 			sf::Text text(*it + "\n", _font, 25);
-			text.setPosition(40, 590  + i);
+			text.setFillColor(sf::Color::Black);
+			text.setPosition(40, 735  + i);
 			i += 30;
 			window.draw(title);
 			window.draw(text);
