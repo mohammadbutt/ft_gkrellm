@@ -6,7 +6,7 @@
 /*   By: jchiang- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/26 15:31:46 by jchiang-          #+#    #+#             */
-/*   Updated: 2020/01/26 15:52:04 by jchiang-         ###   ########.fr       */
+/*   Updated: 2020/01/26 16:19:41 by jchiang-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@ class GraphicDisplay : public IMonitorDisplay
 		~GraphicDisplay(void);
 
 		void render(ManagerModule *mn);
+
+	private:
+		sf::Font _font;
 
 };
 
