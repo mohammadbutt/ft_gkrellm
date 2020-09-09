@@ -1,4 +1,4 @@
-# ft_gkrellm
+# Demo
 
 ![](resources/ft_gkrellm.gif)
 
